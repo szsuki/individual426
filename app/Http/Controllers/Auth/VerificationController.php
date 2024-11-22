@@ -1,5 +1,6 @@
 <?php
-
+/*メールアドレス確認機能を管理するコントローラー
+*/
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

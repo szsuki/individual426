@@ -1,3 +1,6 @@
+{{-- 会員登録画面 --}}
+
+
 @extends('layouts.app')
 
 @section('content')

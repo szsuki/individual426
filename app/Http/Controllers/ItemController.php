@@ -45,13 +45,26 @@ class ItemController extends Controller
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
+                'code' => $request->code,
                 'type' => $request->type,
                 'detail' => $request->detail,
             ]);
-
-            return redirect('/items');
+            // 登録後、商品一覧にリダイレクト
+            return redirect('/item');
         }
-
+        // GETリクエストの場合、商品登録フォームを表示
         return view('item.add');
     }
+
+
+    
+/**
+ * 新しい機能
+ */
+public function abc()
+{
+    return view('item.abc');
 }
+}
+
+

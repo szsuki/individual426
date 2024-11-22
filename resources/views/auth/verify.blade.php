@@ -1,3 +1,6 @@
+{{-- メールアドレス確認画面 --}}
+
+
 @extends('layouts.app')
 
 @section('content')

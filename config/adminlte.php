@@ -296,6 +296,42 @@ return [
             'icon' => 'fas fa-gamepad',
         ],
 
+            // ダッシュボードリンク (既存)
+    [
+        'text' => 'Dashboard',
+        'url'  => 'dashboard',
+        'icon' => 'fas fa-tachometer-alt',
+    ],
+
+
+    // 商品一覧・検索リンク
+    [
+        'text' => '商品一覧・検索',
+        'url'  => 'search/list', // ルートのURLまたは名前
+        'icon' => 'fas fa-list',
+    ],
+
+
+    // ユーザー管理リンク
+    [
+        'text' => 'ユーザー管理',
+        'url'  => 'users',
+        'icon' => 'fas fa-plus',
+    ],
+
+    // その他のリンク
+    ['header' => 'その他'],
+    [
+        'text' => '外部リンク',
+        'url'  => 'https://example.com',
+        'icon' => 'fas fa-external-link-alt',
+        'target' => '_blank', // 別タブで開く
+    ],
+
+
+
+
+
         // AdminLTEデフォルト
         /*
         // Navbar items:

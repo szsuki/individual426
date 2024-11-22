@@ -8,6 +8,10 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
+
+
 
 class RegisterController extends Controller
 {
@@ -29,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/login'; // ログイン画面にリダイレクト
 
     /**
      * Create a new controller instance.
@@ -70,4 +74,15 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    protected function registered(Request $request, $user)
+{
+    // ログアウト処理を実行
+    $this->guard()->logout();
+
+    // ログイン画面へリダイレクトし、メッセージを表示
+    return redirect('/login')->with('status', 'Your account has been created. Please log in.');
 }
+
+}
+

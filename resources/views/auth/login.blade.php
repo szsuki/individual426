@@ -67,6 +67,14 @@
                     </form>
                 </div>
             </div>
+
+            <!-- アカウント作成リンクを追加 -->
+            <div class="mt-3 text-center">
+                <p>
+                    {{ __("Don't have an account?") }} 
+                    <a href="{{ route('register') }}">{{ __('Create an account') }}</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
