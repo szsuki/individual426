@@ -28,7 +28,7 @@ use App\Http\Controllers\Auth\UserController; //
 // });
 
 // トップページ
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 // 認証ルート
 Auth::routes(); // 認証に必要なルートを自動で読み込む
@@ -62,16 +62,30 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // アクセス制御（管理者ユーザーのみ）
 Route::group(['middleware' => 'can:admin'], function() {
     // ユーザー情報一覧表示
-    Route::get('/users',[UserController::class, 'index'])->name('users.index');
+    Route::get('/users',[\App\Http\Controllers\Auth\UserController::class, 'index'])->name('users.index');
     // ユーザー情報編集画面表示
-    Route::get('/users/{user}/edit',[UserController::class, 'edit'])->name('users.edit');
+    Route::get('/users/{user}/edit',[\App\Http\Controllers\Auth\UserController::class, 'edit'])->name('users.edit');
     // ユーザー情報編集処理
-    Route::put('/users/{user}',[UserController::class, 'update'])->name('users.update');
+    Route::put('/users/{user}',[\App\Http\Controllers\Auth\UserController::class, 'update'])->name('users.update');
     // ユーザー情報削除
-    Route::delete('/users/{user}',[UserController::class, 'destroy'])->name('users.destroy');
+    Route::delete('/users/{user}',[\App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('users.destroy');
 });
+
+// 共有ルート(管理者・ユーザー)
+Route::group (['middleware' => 'auth'],function() {
+    // ホーム画面表示
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+
+    // マイページ表示
+    Route::get('/account/profile/{id}', [App\Http\Controllers\AccountController::class,'profile'])->name('profile');
+    // マイページ編集画面表示
+    Route::get('/account/profile/edit/{page}', [App\Http\Controllers\AccountController::class,'edit'])->name('profileEdit');
+    // マイページ編集
+    Route::patch('/account/profile/update/{page}', [App\Http\Controllers\AccountController::class,'update'])->name('profileUpdate');
+
 
     // 商品一覧ページ
     Route::get('/search/list', [SearchController::class, 'list'])->name('search.list');
     // 商品詳細ページ
     Route::get('/search/{id}', [SearchController::class, 'show'])->name('search.show');
+});

@@ -56,6 +56,26 @@ class ItemController extends Controller
         return view('item.add');
     }
 
+    public function store(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'type' => 'required|string|max:255',
+        'detail' => 'required|string|max:1000', // 他の項目も適切に追加
+        // 必要に応じて他のフィールドもここにバリデーションを設定
+    
+    ]);
+
+    // user_id を明示的に追加
+    $validated['user_id'] = auth()->id();
+
+    // バリデーションが通った場合の処理
+    Item::create($validated);
+
+    return redirect()->route('items.index')->with('success', '商品が登録されました！');
+}
+
+
 
     
 /**

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 
-
+/**Laravel フレームワークでユーザー登録機能を実現するため */
 
 class RegisterController extends Controller
 {

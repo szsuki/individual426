@@ -65,10 +65,10 @@
                     <td>{{ $item->id }}</td>
                     <td>
                         @switch($item->type)
-                            @case(1) 果物 @break
-                            @case(2) 野菜 @break
-                            @case(3) 精肉 @break
-                            @case(4) 鮮魚 @break
+                            @case(1) 文芸 @break
+                            @case(2) 絵本 @break
+                            @case(3) 漫画 @break
+                            @case(4) 雑誌 @break
                             @default その他
                         @endswitch
                     </td>

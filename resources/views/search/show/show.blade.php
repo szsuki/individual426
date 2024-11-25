@@ -58,10 +58,10 @@
             <th>種別</th>
             <td>
             @switch($item->type)
-                @case(1) 果物 @break
-                @case(2) 野菜 @break
-                @case(3) 精肉 @break
-                @case(4) 鮮魚 @break
+                @case(1) 文芸 @break
+                @case(2) 絵本 @break
+                @case(3) 漫画 @break
+                @case(4) 雑誌 @break
                 @default その他
             @endswitch     
             </td>
@@ -71,20 +71,24 @@
             <td>{!! nl2br(e($item->name)) !!}</td>
         </tr>
         <tr>
+            <th>価格</th>
+            <td>{{ $item->price }} 円</td>
+        </tr>
+        <tr>
+            <th>在庫数</th>
+            <td>{{ $item->stock }} 本</td>
+        </tr>
+        <tr>
+            <th>詳細</th>
+            <td>{!! nl2br(e($item->detail)) !!}</td>
+        </tr>
+        <tr>
             <th>登録日時</th>
             <td>{{ $item->created_at }}</td>
         </tr>
         <tr>
             <th>更新日時</th>
             <td>{{ $item->updated_at }}</td>
-        </tr>
-        <tr>
-            <th>価格</th>
-            <td>{{ $item->price }} 円</td>
-        </tr>
-        <tr>
-            <th>詳細</th>
-            <td>{!! nl2br(e($item->detail)) !!}</td>
         </tr>
     </table>
 

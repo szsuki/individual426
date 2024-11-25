@@ -5,14 +5,32 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; //必要なControllerクラスをインポート
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+    /**
+     * コンストラクタ
+     */
+    public function __construct()
+    {
+        // ログインしているユーザーだけがアクセスできる
+        $this->middleware('auth');
+    }
+
+
     public function index() // ユーザー一覧画面表示
     {
+        if (Gate::denies('admin')) {
+            abort(403);
+        }
+
         $users = User::all();
         return view('users.index', compact('users'));
     }
@@ -28,11 +46,22 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
+     public function store(Request $request)
+     {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'detail' => 'required|string|max:1000',
+        ]);
 
+         // user_id を設定
+         $validated['user_id'] = auth()->id(); // ログイン中のユーザーIDを設定
+     
+         // バリデーションが通った場合の処理
+         Item::create($validated);
+     
+         return redirect()->route('items.index')->with('success', '商品が登録されました！');
+     }
     /**
      * Display the specified resource.
      */

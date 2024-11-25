@@ -29,13 +29,35 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
+                        <label for="type">種別</label>
+                        <select class="form-control" id="type" name="type">
+                            <option value="">-- 種別を選択してください --</option>
+                            <option value="literature" {{ old('type') == 'literature' ? 'selected' : '' }}>文芸</option>
+                            <option value="children" {{ old('type') == 'children' ? 'selected' : '' }}>絵本</option>
+                            <option value="comic" {{ old('type') == 'comic' ? 'selected' : '' }}>漫画</option>
+                            <option value="magazine" {{ old('type') == 'magazine' ? 'selected' : '' }}>雑誌</option>
+                            <option value="other" {{ old('type') == 'other' ? 'selected' : '' }}>その他</option>
+                        </select>
                         </div>
 
                         <div class="form-group">
+                            <label for="detail">価格</label>
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="価格">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="detail">在庫数</label>
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="在庫数">
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="detail">登録者</label>
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="登録者">
                         </div>
                     </div>
 
