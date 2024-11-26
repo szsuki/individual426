@@ -11,6 +11,9 @@ use App\Http\Controllers\DashboardController; // 必要なコントローラー�
 use App\Http\Controllers\Auth\RegisterController; // アカウント登録
 use App\Http\Controllers\SearchController; // 商品検索
 use App\Http\Controllers\Auth\UserController; // 
+use App\Http\Controllers\Auth\ForgotPasswordController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +57,12 @@ Route::get('/auth/register', [RegisterController::class, 'showRegistrationForm']
 // 登録処理
 Route::post('/auth/register', [RegisterController::class, 'register']);
 
+
+//パスワード
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
 
 // home ダッシュボード
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
