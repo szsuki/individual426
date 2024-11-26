@@ -62,6 +62,7 @@ class ItemController extends Controller
         'name' => 'required|string|max:255',
         'type' => 'required|string|max:255',
         'detail' => 'required|string|max:1000', // 他の項目も適切に追加
+        'price' => 'required|numeric|min:0', // priceのバリデーションを追加
         // 必要に応じて他のフィールドもここにバリデーションを設定
     
     ]);

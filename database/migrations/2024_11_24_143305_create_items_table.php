@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable(); // 修正: `change()` を削除
             $table->string('name', 100)->index();  // 商品名
             $table->string('type', 100)->nullable();  // カテゴリ
-            $table->decimal('price', 10, 2);  // 価格 (小数点2桁まで)
+            $table->decimal('price', 10, 2)->default(0)->change();  // 価格 (小数点2桁まで)
             $table->integer('stock');  // 在庫数
             $table->string('code', 100)->unique();
             $table->string('detail', 500)->nullable();
@@ -31,8 +31,10 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('items'); // 修正: テーブル全体を削除
+        Schema::table('items', function (Blueprint $table) {
+            $table->decimal('price', 10, 2)->nullable(false)->change(); // 元の状態に戻す
+        });
     }
 };
