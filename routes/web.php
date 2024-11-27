@@ -81,7 +81,7 @@ Route::group(['middleware' => 'can:admin'], function() {
 });
 
 // 共有ルート(管理者・ユーザー)
-Route::group (['middleware' => 'auth'],function() {
+
     // ホーム画面表示
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
@@ -97,4 +97,3 @@ Route::group (['middleware' => 'auth'],function() {
     Route::get('/search/list', [SearchController::class, 'list'])->name('search.list');
     // 商品詳細ページ
     Route::get('/search/{id}', [SearchController::class, 'show'])->name('search.show');
-});
