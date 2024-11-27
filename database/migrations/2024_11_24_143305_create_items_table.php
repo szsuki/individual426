@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('type', 100)->nullable();  // カテゴリ
             $table->decimal('price', 10, 2)->default(0)->change();  // 価格 (小数点2桁まで)
             $table->integer('stock');  // 在庫数
-            $table->string('code', 100)->unique();
             $table->string('detail', 500)->nullable();
             $table->string('created_by');  // 登録者
             $table->timestamps();  // 登録日時、更新日時
@@ -33,8 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->decimal('price', 10, 2)->nullable(false)->change(); // 元の状態に戻す
-        });
+        Schema::dropIfExists('items');
     }
 };

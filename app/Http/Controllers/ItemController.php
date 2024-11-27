@@ -47,6 +47,8 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'code' => $request->code,
                 'type' => $request->type,
+                'price' => $request->price,
+                'stock' => $request->stock,
                 'detail' => $request->detail,
             ]);
             // 登録後、商品一覧にリダイレクト
@@ -57,24 +59,28 @@ class ItemController extends Controller
     }
 
     public function store(Request $request)
-{
-    $validated = $request->validate([
-        'name' => 'required|string|max:255',
-        'type' => 'required|string|max:255',
-        'detail' => 'required|string|max:1000', // 他の項目も適切に追加
-        'price' => 'required|numeric|min:0', // priceのバリデーションを追加
-        // 必要に応じて他のフィールドもここにバリデーションを設定
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'detail' => 'required|string|max:1000',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ]);
     
-    ]);
-
-    // user_id を明示的に追加
-    $validated['user_id'] = auth()->id();
-
-    // バリデーションが通った場合の処理
-    Item::create($validated);
-
-    return redirect()->route('items.index')->with('success', '商品が登録されました！');
-}
+        // ログインユーザーIDまたはデフォルト値を設定
+        $validated['user_id'] = auth()->id();
+        $validated['created_by'] = auth()->id() ?? 0;
+    
+        // デバッグ用: 挿入データ確認
+        // dd($validated);
+    
+        // データベースに保存
+        Item::create($validated);
+    
+        return redirect()->route('items.index')->with('success', '商品が登録されました！');
+    }
+    
 
 
 

@@ -33,55 +33,48 @@
     </form>
 
     <!-- 商品一覧表示 -->
-    <table class="product-table">
-        <thead>
-            <tr>
-                <th>
-                    <a href="{{ route('search.list', ['sort' => 'id', 'order' => $sortField == 'id' && $sortOrder == 'asc' ? 'desc' : 'asc', 'keyword' => request('keyword'), 'type' => request('type')]) }}" 
-                       class="{{ $sortField == 'id' ? ($sortOrder == 'asc' ? 'sort-asc' : 'sort-desc') : '' }}">ID</a>
-                </th>
-                <th>
-                    <a href="{{ route('search.list', ['sort' => 'type', 'order' => $sortField == 'type' && $sortOrder == 'asc' ? 'desc' : 'asc', 'keyword' => request('keyword'), 'type' => request('type')]) }}" 
-                       class="{{ $sortField == 'type' ? ($sortOrder == 'asc' ? 'sort-asc' : 'sort-desc') : '' }}">種別</a>
-                </th>
-                <th>
-                    <a href="{{ route('search.list', ['sort' => 'name', 'order' => $sortField == 'name' && $sortOrder == 'asc' ? 'desc' : 'asc', 'keyword' => request('keyword'), 'type' => request('type')]) }}" 
-                       class="{{ $sortField == 'name' ? ($sortOrder == 'asc' ? 'sort-asc' : 'sort-desc') : '' }}">商品名</a>
-                </th>
-                <th>
-                    <a href="{{ route('search.list', ['sort' => 'created_at', 'order' => $sortField == 'created_at' && $sortOrder == 'asc' ? 'desc' : 'asc', 'keyword' => request('keyword'), 'type' => request('type')]) }}" 
-                       class="{{ $sortField == 'created_at' ? ($sortOrder == 'asc' ? 'sort-asc' : 'sort-desc') : '' }}">登録日時</a>
-                </th>
-                <th>
-                    <a href="{{ route('search.list', ['sort' => 'updated_at', 'order' => $sortField == 'updated_at' && $sortOrder == 'asc' ? 'desc' : 'asc', 'keyword' => request('keyword'), 'type' => request('type')]) }}" 
-                       class="{{ $sortField == 'updated_at' ? ($sortOrder == 'asc' ? 'sort-asc' : 'sort-desc') : '' }}">更新日時</a>
-                </th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($items as $item)
-                <tr>
-                    <td>{{ $item->id }}</td>
-                    <td>
-                        @switch($item->type)
-                            @case(1) 文芸 @break
-                            @case(2) 絵本 @break
-                            @case(3) 漫画 @break
-                            @case(4) 雑誌 @break
-                            @default その他
-                        @endswitch
-                    </td>
-                    <td>{!! nl2br(e($item->name)) !!}</td>
-                    <td>{{ $item->created_at->format('Y-m-d H:i') }}</td>
-                    <td>{{ $item->updated_at->format('Y-m-d H:i') }}</td>
-                    <td><a href="{{ route('search.show', $item->id) }}" class="btn_03">詳細</a></td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="6">データが見つかりませんでした。</td>
-                </tr>
-            @endforelse
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">商品一覧</h3>
+
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>名前</th>
+                                <th>種別</th>
+                                <th>登録日時</th>
+                                <th>更新日時</th> <!-- 更新日時の列を追加 -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($items as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>{!! nl2br(e($item->name)) !!}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
+                                    <td><a href="{{ route('search.show', $item->id) }}" class="btn_03">詳細</a></td>
+
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6">データが見つかりませんでした。</td>
+                                </tr>
+                            @endforelse
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
         </tbody>
     </table>
 
@@ -89,7 +82,7 @@
     <div class="pagination mt-4 d-flex justify-content-center">
         {{ $items->links('pagination::bootstrap-5') }}
     </div>
-@stop
+
 
 {{-- カスタムCSS --}}
 @section('css')

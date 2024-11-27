@@ -6,21 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
-{
-    Schema::table('items', function (Blueprint $table) {
-        $table->decimal('price', 10, 2)->default(0)->nullable(); // 価格フィールドの追加
-    });
-}
+    {
+        // カラムが存在しない場合にのみ追加
+        if (!Schema::hasColumn('items', 'price')) {
+            Schema::table('items', function (Blueprint $table) {
+                $table->decimal('price', 10, 2)->nullable(false)->default(0);
+            });
+        }
+    }
 
-public function down()
-{
-    Schema::table('items', function (Blueprint $table) {
-        $table->dropColumn('price'); // 価格フィールドを削除する
-    });
-}
-
+    public function down(): void
+    {
+        // カラムを削除
+        Schema::table('items', function (Blueprint $table) {
+            $table->dropColumn('price');
+        });
+    }
 };

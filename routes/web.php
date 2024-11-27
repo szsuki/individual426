@@ -69,7 +69,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 
 
 // アクセス制御（管理者ユーザーのみ）
-Route::group(['middleware' => 'can:admin'], function() {
+//Route::group(['middleware' => 'can:admin'], function() {
     // ユーザー情報一覧表示
     Route::get('/users',[\App\Http\Controllers\Auth\UserController::class, 'index'])->name('users.index');
     // ユーザー情報編集画面表示
@@ -78,7 +78,7 @@ Route::group(['middleware' => 'can:admin'], function() {
     Route::put('/users/{user}',[\App\Http\Controllers\Auth\UserController::class, 'update'])->name('users.update');
     // ユーザー情報削除
     Route::delete('/users/{user}',[\App\Http\Controllers\Auth\UserController::class, 'destroy'])->name('users.destroy');
-});
+//});
 
 // 共有ルート(管理者・ユーザー)
 

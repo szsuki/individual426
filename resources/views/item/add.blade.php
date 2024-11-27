@@ -41,13 +41,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="detail">価格</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="価格">
+                            <label for="price">価格</label>
+                            <input type="text" class="form-control" id="price" name="price" placeholder="価格">
                         </div>
                         
                         <div class="form-group">
-                            <label for="detail">在庫数</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="在庫数">
+                            <label for="stock">在庫数</label>
+                            <input type="text" class="form-control" id="stock" name="stock" placeholder="在庫数">
                         </div>
                         
                         <div class="form-group">
@@ -56,8 +56,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="detail">登録者</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="登録者">
+                            <label for="created_by">登録者</label>
+                            <input type="text" class="form-control" id="created_by" name="created_by" placeholder="登録者">
                         </div>
                     </div>
 

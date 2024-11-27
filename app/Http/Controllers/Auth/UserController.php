@@ -18,6 +18,11 @@ class UserController extends Controller
     /**
      * コンストラクタ
      */
+
+
+
+
+     
     public function __construct()
     {
         // ログインしているユーザーだけがアクセスできる
@@ -27,9 +32,7 @@ class UserController extends Controller
 
     public function index() // ユーザー一覧画面表示
     {
-        if (Gate::denies('admin')) {
-            abort(403);
-        }
+        //dd(Auth::user()); // ここでデバッグ情報を表示
 
         $users = User::all();
         return view('users.index', compact('users'));
