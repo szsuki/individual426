@@ -58,13 +58,27 @@ class ItemController extends Controller
 
     public function store(Request $request)
 {
+        // バリデーションルールの定義
     $validated = $request->validate([
         'name' => 'required|string|max:255',
         'type' => 'required|string|max:255',
-        'detail' => 'required|string|max:1000', // 他の項目も適切に追加
-        // 必要に応じて他のフィールドもここにバリデーションを設定
-    
+        'price' => 'required|numeric|min:0', // 価格が必須で0以上
+        'stock' => 'required|integer|min:0', // 在庫数も必須で0以上
+        'code' => 'required|string|max:100|unique:items,code', // 商品コードが必須で一意
+        'detail' => 'nullable|string|max:500', // 詳細は任意
+        'created_by' => 'required|string|max:255', // 登録者が必須
     ]);
+
+    // データを保存
+    Item::insert([
+        'name' => $validated['name'],
+        'type' => $validated['type'],
+        'detail' => $validated['detail'],
+        'user_id' => auth()->id(),
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
 
     // user_id を明示的に追加
     $validated['user_id'] = auth()->id();

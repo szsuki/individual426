@@ -28,49 +28,18 @@
                                 <th>名前</th>
                                 <th>種別</th>
                                 <th>登録日時</th>
+                                <th>更新日時</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                            <h1 style="text-align: center;">商品詳細情報</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <td>{{ $item->id }}</td>
-        </tr>
-        <tr>
-            <th>種別</th>
-            <td>
-            @switch($item->type)
-                @case(1) 文芸 @break
-                @case(2) 絵本 @break
-                @case(3) 漫画 @break
-                @case(4) 雑誌 @break
-                @default その他
-            @endswitch     
-            </td>
-        </tr>
-        <tr>
-            <th>商品名</th>
-            <td>{!! nl2br(e($item->name)) !!}</td>
-        </tr>
-        <tr>
-            <th>登録日時</th>
-            <td>{{ $item->created_at }}</td>
-        </tr>
-        <tr>
-            <th>更新日時</th>
-            <td>{{ $item->updated_at }}</td>
-        </tr>
-        <tr>
-            <th>価格</th>
-            <td>{{ $item->price }} 円</td>
-        </tr>
-        <tr>
-            <th>詳細</th>
-            <td>{!! nl2br(e($item->detail)) !!}</td>
-        </tr>
-    </table>
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

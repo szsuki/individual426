@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+
+    public $timestamps = true; // 自動でタイムスタンプを設定する
+
+
     /**
      * The attributes that are mass assignable.
      *

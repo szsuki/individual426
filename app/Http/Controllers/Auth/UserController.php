@@ -20,6 +20,9 @@ class UserController extends Controller
      */
     public function __construct()
     {
+        // 現在のユーザー情報を確認
+        dd(Auth::check());
+
         // ログインしているユーザーだけがアクセスできる
         $this->middleware('auth');
     }
@@ -27,10 +30,6 @@ class UserController extends Controller
 
     public function index() // ユーザー一覧画面表示
     {
-        if (Gate::denies('admin')) {
-            abort(403);
-        }
-
         $users = User::all();
         return view('users.index', compact('users'));
     }

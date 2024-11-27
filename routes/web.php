@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\RegisterController; // アカウント登録
 use App\Http\Controllers\SearchController; // 商品検索
 use App\Http\Controllers\Auth\UserController; // 
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\DebugController;
 
 
 
@@ -81,7 +82,6 @@ Route::group(['middleware' => 'can:admin'], function() {
 });
 
 // 共有ルート(管理者・ユーザー)
-Route::group (['middleware' => 'auth'],function() {
     // ホーム画面表示
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
@@ -92,9 +92,11 @@ Route::group (['middleware' => 'auth'],function() {
     // マイページ編集
     Route::patch('/account/profile/update/{page}', [App\Http\Controllers\AccountController::class,'update'])->name('profileUpdate');
 
+    //ガード状態を確認するもの
+    Route::get('/debug/custom-guard', [DebugController::class, 'checkCustomGuard']);
+
 
     // 商品一覧ページ
     Route::get('/search/list', [SearchController::class, 'list'])->name('search.list');
     // 商品詳細ページ
     Route::get('/search/{id}', [SearchController::class, 'show'])->name('search.show');
-});
