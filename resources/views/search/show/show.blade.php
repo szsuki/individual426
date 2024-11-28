@@ -83,6 +83,10 @@
             <td>{!! nl2br(e($item->detail)) !!}</td>
         </tr>
         <tr>
+            <th>登録者</th>
+            <td>{{ $item->created_by }}</td>
+        </tr>
+        <tr>
             <th>登録日時</th>
             <td>{{ $item->created_at }}</td>
         </tr>

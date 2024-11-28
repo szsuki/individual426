@@ -13,6 +13,7 @@
                 <div class="card-header">
                     <h3 class="card-title">商品一覧</h3>
                     <div class="card-tools">
+                        <span class="mr-3">登録件数: {{ $totalItems }} 件</span>
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
                                 <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
@@ -47,19 +48,18 @@
                                     </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
-                                    <td>
-                                    <form action="{{ route('items.destroy', $item->id) }}" method="POST" 
-                                    onsubmit="return confirm('本当に削除しますか？');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">削除</button>
-                                    </form>
-                                    </td>
+                                    <td class="align-middle text-center"><a href="/item/edit/{{$item->id}}" class="btn btn-outline-success btn-sm">編集</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
+            <!-- ページネーション -->
+            @if ($items->hasPages())
+            <div class="pagination mt-4 d-flex justify-content-center">
+            {{ $items->links('pagination::bootstrap-5') }}
+            </div>
+            @endif
             </div>
         </div>
     </div>
@@ -69,6 +69,14 @@
         {{ $items->links('pagination::bootstrap-5') }}
     </div> -->
 @section('css')
+<style>
+    span.mr-3 {
+        margin-right: 80px;  /* 商品登録ボタンとの間隔を設定 */
+
+        position: relative;
+        right: 150px;  /* 右から40px離れた位置に配置 */
+    }
+</style>
 @stop
 
 @section('js')

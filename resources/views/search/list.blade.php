@@ -79,6 +79,12 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- ページネーション -->
+        @if ($items->hasPages())
+        <div class="pagination mt-4 d-flex justify-content-center">
+    {{ $items->links('pagination::bootstrap-5') }}
+    </div>
+        @endif
             </div>
         </div>
     </div>
@@ -86,6 +92,8 @@
         </tbody>
     </table>
 
+
+    
     <!-- ページネーション -->
     <!--<div class="d-flex justify-content-center mt-4">
         {{ $items->links('pagination::bootstrap-5') }}

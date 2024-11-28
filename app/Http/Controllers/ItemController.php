@@ -23,9 +23,15 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::paginate(10); // 1ページあたり10件表示
 
-        return view('item.index', compact('items'));
+    // 商品一覧をページネーション付きで取得
+    $items = Item::paginate(10);
+
+    // 登録件数を取得
+    $totalItems = Item::count();
+
+    // ビューにデータを渡す
+    return view('item.index', compact('items', 'totalItems'));
         
     }
 
@@ -56,6 +62,37 @@ class ItemController extends Controller
         // GETリクエストの場合、商品登録フォームを表示
         return view('item.add');
     }
+
+    //商品編集
+    public function edit($id)
+    {
+    // 商品をIDで検索し取得
+    $item = Item::findOrFail($id); // 該当する商品がない場合は404エラーを返す
+
+    // 編集画面を表示し、商品データを渡す
+    return view('item.edit', compact('item'));
+    }
+
+    public function update(Request $request, $id)
+    {
+    // バリデーション
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'type' => 'required|integer',
+        'detail' => 'nullable|string|max:1000',
+        'price' => 'required|numeric|min:0',
+    ]);
+
+    // 商品をIDで検索し取得
+    $item = Item::findOrFail($id);
+
+    // 商品データを更新
+    $item->update($validated);
+
+    // 更新後、商品一覧画面にリダイレクト
+    return redirect()->route('items.index')->with('success', '商品が更新されました！');
+    }
+
 
         public function destroy($id)
     {

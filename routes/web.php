@@ -44,8 +44,15 @@ Route::prefix('items')->group(function () {
     Route::get('/add', [ItemController::class, 'add'])->name('items.add'); //add.php
     Route::post('/add', [ItemController::class, 'store'])->name('items.store');
 });
-//商品削除
-Route::delete('/item/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
+
+//商品編集
+Route::get('/item/edit/{id}', [ItemController::class, 'edit'])->name('item.edit');
+
+// 商品編集の更新処理
+Route::post('/item/update/{id}', [ItemController::class, 'update'])->name('item.update');
+
+// 商品削除処理
+Route::delete('/item/delete/{id}', [ItemController::class, 'destroy'])->name('item.delete');
 
 
 
