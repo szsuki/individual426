@@ -13,11 +13,11 @@ class SearchController extends Controller
     
         // クエリの作成
         $query = \App\Models\Item::query();
-    
+        // キーワード検索
         if (!empty($keyword)) {
             $query->where('name', 'LIKE', "%{$keyword}%");
         }
-    
+        // 種別検索
         if (!empty($type)) { 
             $query->where('type', $type); //'type'が指定されている場合のみ絞り込み
         }

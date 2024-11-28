@@ -56,10 +56,10 @@
                         <input type="text" class="form-control" id="detail" name="detail" value="{{ old('detail', $item->detail) }}" placeholder="詳細説明">
                     </div>
                     
-                    <div class="form-group">
+                <!--    <div class="form-group">
                         <label for="created_by">登録者</label>
                         <input type="text" class="form-control" id="created_by" name="created_by" value="{{ old('created_by', $item->created_by) }}" placeholder="登録者">
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="card-footer">

@@ -106,7 +106,7 @@ class ItemController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(Request $request, $id = null)  // $id パラメータを追加（新規登録と更新の両方に対応）
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -114,20 +114,30 @@ class ItemController extends Controller
             'detail' => 'required|string|max:1000',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
+            //'created_by' => 'nullable|string',  // こちらはそのままでOK
         ]);
     
         // ログインユーザーIDまたはデフォルト値を設定
         $validated['user_id'] = auth()->id();
-        $validated['created_by'] = auth()->id() ?? 0;
+        //$validated['created_by'] = $validated['created_by'] ?? '';  // もし空であれば空文字に設定
     
-        // デバッグ用: 挿入データ確認
-        // dd($validated);
+        // 商品更新（$idが存在すれば更新、存在しなければ新規作成）
+        if ($id) {
+            // 商品をIDで取得
+            $item = Item::findOrFail($id);
+            // 更新
+            $item->update($validated);
+        } else {
+            // 新規商品作成
+            $item = new Item();
+            $item->fill($validated);
+            $item->save();
+        }
     
-        // データベースに保存
-        Item::create($validated);
-    
-        return redirect()->route('items.index')->with('success', '商品が登録されました！');
+        // 成功メッセージとともに商品一覧ページにリダイレクト
+        return redirect()->route('items.index')->with('success', $id ? '商品が更新されました！' : '商品が登録されました！');
     }
+    
     
 
 

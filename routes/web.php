@@ -49,11 +49,13 @@ Route::prefix('items')->group(function () {
 Route::get('/item/edit/{id}', [ItemController::class, 'edit'])->name('item.edit');
 
 // 商品編集の更新処理
-Route::post('/item/update/{id}', [ItemController::class, 'update'])->name('item.update');
+Route::put('/item/update/{id}', [ItemController::class, 'update'])->name('item.update');
 
 // 商品削除処理
 Route::delete('/item/delete/{id}', [ItemController::class, 'destroy'])->name('item.delete');
 
+// 更新
+Route::resource('items', ItemController::class);
 
 
 // アカウント関連のルート

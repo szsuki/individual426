@@ -297,11 +297,11 @@ return [
         ],
 
             // ダッシュボードリンク (既存)
-    [
-        'text' => 'Dashboard',
-        'url'  => 'dashboard',
-        'icon' => 'fas fa-tachometer-alt',
-    ],
+//    [
+//        'text' => 'Dashboard',
+//        'url'  => 'dashboard',
+//        'icon' => 'fas fa-tachometer-alt',
+//    ],
 
 
     // 商品一覧・検索リンク
