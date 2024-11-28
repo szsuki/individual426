@@ -12,23 +12,23 @@ class SearchController extends Controller
         $type = $request->input('type'); 
     
         // クエリの作成
-        $query = Item::query();
+        $query = \App\Models\Item::query();
     
-        if ($keyword) {
+        if (!empty($keyword)) {
             $query->where('name', 'LIKE', "%{$keyword}%");
         }
     
-        if ($type) { 
+        if (!empty($type)) { 
             $query->where('type', $type); //'type'が指定されている場合のみ絞り込み
         }
 
         // 並び替えの条件
-        $sortField = $request->input('sort', 'id'); // 並び替えフィールド
-        $sortOrder = $request->input('order', 'asc'); // 並び替えの順序
+        //$sortField = $request->input('sort', 'id'); // 並び替えフィールド
+        //$sortOrder = $request->input('order', 'asc'); // 並び替えの順序
 
         
          // 並び替え,ページネーション,条件の維持
-        $items = $query ->orderBy($sortField, $sortOrder)
+        $items = $query //->orderBy($sortField, $sortOrder)
                         ->paginate(10)
                         ->appends($request->only(['sort', 'order', 'keyword', 'type'])); // 並び替えを保持
 
@@ -36,7 +36,7 @@ class SearchController extends Controller
         $itemCount = $query->count();
 
         // ビューにデータを渡す
-        return view('search.list', compact('items', 'keyword', 'type', 'itemCount', 'sortField', 'sortOrder'));
+        return view('search.list', compact('items', 'keyword', 'type', 'itemCount'));
     }
 
     // 商品詳細の表示

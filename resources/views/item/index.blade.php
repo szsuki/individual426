@@ -35,10 +35,26 @@
                             @foreach ($items as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td>{{ $item->type }}</td>
                                     <td>{!! nl2br(e($item->name)) !!}</td>
+                                    <td>
+                                    @switch($item->type)
+                                    @case(1) 文芸 @break
+                                    @case(2) 絵本 @break
+                                    @case(3) 漫画 @break
+                                    @case(4) 雑誌 @break
+                                    @case(5) その他 @break
+                                    @endswitch
+                                    </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
+                                    <td>
+                                    <form action="{{ route('items.destroy', $item->id) }}" method="POST" 
+                                    onsubmit="return confirm('本当に削除しますか？');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">削除</button>
+                                    </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -48,7 +64,10 @@
         </div>
     </div>
 @stop
-
+    <!-- ページネーション -->
+    <!--<div class="pagination mt-4 d-flex justify-content-center">
+        {{ $items->links('pagination::bootstrap-5') }}
+    </div> -->
 @section('css')
 @stop
 

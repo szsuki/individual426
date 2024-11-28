@@ -23,10 +23,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-        // 商品一覧取得
-        $items = Item::all();
+        $items = Item::paginate(10); // 1ページあたり10件表示
 
         return view('item.index', compact('items'));
+        
     }
 
     /**
@@ -45,7 +45,6 @@ class ItemController extends Controller
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
-                'code' => $request->code,
                 'type' => $request->type,
                 'price' => $request->price,
                 'stock' => $request->stock,
@@ -57,6 +56,18 @@ class ItemController extends Controller
         // GETリクエストの場合、商品登録フォームを表示
         return view('item.add');
     }
+
+        public function destroy($id)
+    {
+        // 商品をIDで検索し、削除
+        $item = Item::findOrFail($id);
+        $item->delete();
+
+        // 削除後、商品一覧画面にリダイレクト
+        return redirect()->route('items.index')->with('success', '商品が削除されました！');
+    }
+
+
 
     public function store(Request $request)
     {

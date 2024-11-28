@@ -19,11 +19,11 @@
         <div class="form-group">
             <select name="type" class="form-select" style="width: 100%">
                 <option value="">種別</option>
-                <option value="1" {{ request('type') == '1' ? 'selected' : '' }}>1.果物</option>
-                <option value="2" {{ request('type') == '2' ? 'selected' : '' }}>2.野菜</option>
-                <option value="3" {{ request('type') == '3' ? 'selected' : '' }}>3.精肉</option>
-                <option value="4" {{ request('type') == '4' ? 'selected' : '' }}>4.鮮魚</option>
-                <option value="5" {{ request('type') == '5' ? 'selected' : '' }}>5.その他</option>
+                <option value="1" {{ request('type') == '1' ? 'selected' : '' }}>文芸</option>
+                <option value="2" {{ request('type') == '2' ? 'selected' : '' }}>絵本</option>
+                <option value="3" {{ request('type') == '3' ? 'selected' : '' }}>漫画</option>
+                <option value="4" {{ request('type') == '4' ? 'selected' : '' }}>雑誌</option>
+                <option value="5" {{ request('type') == '5' ? 'selected' : '' }}>その他</option>
             </select>
         </div>
         
@@ -45,7 +45,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>名前</th>
+                                <th>商品名</th>
                                 <th>種別</th>
                                 <th>登録日時</th>
                                 <th>更新日時</th> <!-- 更新日時の列を追加 -->
@@ -55,8 +55,16 @@
                             @forelse ($items as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td>{{ $item->type }}</td>
-                                    <td>{!! nl2br(e($item->name)) !!}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>
+                                    @switch($item->type)
+                                    @case(1) 文芸 @break
+                                    @case(2) 絵本 @break
+                                    @case(3) 漫画 @break
+                                    @case(4) 雑誌 @break
+                                    @default その他
+                                    @endswitch
+                                    </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
                                     <td><a href="{{ route('search.show', $item->id) }}" class="btn_03">詳細</a></td>
@@ -79,9 +87,9 @@
     </table>
 
     <!-- ページネーション -->
-    <div class="pagination mt-4 d-flex justify-content-center">
+    <!--<div class="d-flex justify-content-center mt-4">
         {{ $items->links('pagination::bootstrap-5') }}
-    </div>
+    </div> -->
 
 
 {{-- カスタムCSS --}}

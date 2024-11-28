@@ -44,6 +44,8 @@ Route::prefix('items')->group(function () {
     Route::get('/add', [ItemController::class, 'add'])->name('items.add'); //add.php
     Route::post('/add', [ItemController::class, 'store'])->name('items.store');
 });
+//商品削除
+Route::delete('/item/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
 
 
 

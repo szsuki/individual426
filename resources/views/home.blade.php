@@ -3,17 +3,17 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>本の登録・検索</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>ようこそ、図書館へ</p>
 
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h5>Recent Activity</h5>
+                    <h5>新着情報</h5>
                 </div>
                 <div class="card-body">
                     <!-- アクティビティリスト -->
