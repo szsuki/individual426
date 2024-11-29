@@ -78,6 +78,12 @@ Route::post('register', [RegisterController::class, 'register']);
 // home ダッシュボード
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
+// マイページ表示
+Route::get('/account/profile', [AccountController::class,'profile'])->name('profile');
+// マイページ編集画面表示
+Route::get('/account/profile/edit', [AccountController::class,'edit'])->name('profileEdit');
+// マイページ編集
+Route::patch('/account/profile/update/{page}', [AccountController::class,'update'])->name('profileUpdate');
 
 // アクセス制御（管理者ユーザーのみ）
 //Route::group(['middleware' => 'can:admin'], function() {
@@ -97,11 +103,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
     // マイページ表示
-    Route::get('/account/profile/{id}', [App\Http\Controllers\AccountController::class,'profile'])->name('profile');
+    Route::get('/account/profile/{id}', [AccountController::class,'profile'])->name('profile');
     // マイページ編集画面表示
-    Route::get('/account/profile/edit/{page}', [App\Http\Controllers\AccountController::class,'edit'])->name('profileEdit');
+    Route::get('/account/profile/edit/{page}', [AccountController::class,'edit'])->name('profileEdit');
     // マイページ編集
-    Route::patch('/account/profile/update/{page}', [App\Http\Controllers\AccountController::class,'update'])->name('profileUpdate');
+    Route::patch('/account/profile/update/{page}', [AccountController::class,'update'])->name('profileUpdate');
 
 
     // 商品一覧ページ

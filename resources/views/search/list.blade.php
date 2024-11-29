@@ -17,7 +17,7 @@
     <!-- 検索フォーム -->
     <form method="GET" action="{{ route('search.list') }}" class="search-container">
         <div class="form-group">
-            <select name="type" class="form-select" style="width: 100%">
+            <select name="type" class="form-select" style="width: 10%">
                 <option value="">種別</option>
                 <option value="1" {{ request('type') == '1' ? 'selected' : '' }}>文芸</option>
                 <option value="2" {{ request('type') == '2' ? 'selected' : '' }}>絵本</option>
@@ -103,6 +103,44 @@
 {{-- カスタムCSS --}}
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+
+    <style>
+    /*ページネーション
+     ページネーションのテキスト */
+        p.small.text-muted {
+            display:none;
+        }
+
+        /* 検索フォームの横並び配置 */
+        .search-container {
+            display: flex;
+            align-items: center; /* 垂直方向の位置を中央に揃える */
+            gap: 10px; /* 各要素の間隔を調整 */
+            margin-top: 20px; /* 上側に20pxの余白を設定 */
+
+        }
+
+        /* テキストボックスの可変幅 */
+        .search-bar {
+            min-width: 350px; /* 最小幅を設定 */
+        }
+
+        /* ドロップダウンの幅調整 */
+        .form-select {
+        
+            width: auto; /* 必要な幅に応じてサイズを調整 */
+            min-width: 150px; /* 最小幅を設定 */
+        }
+
+        /* ボタンのデザイン調整 */
+        .btn-secondary {
+            white-space: nowrap; /* ボタンのテキストが折り返されないようにする */
+        }
+
+
+
+    </style>
+
 @stop
 
 {{-- カスタムJavaScript --}}

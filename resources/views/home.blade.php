@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', '本の管理')
 
 @section('content_header')
     <h1>本の登録・検索</h1>

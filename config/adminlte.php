@@ -293,7 +293,7 @@ return [
         [
             'text' => '商品登録',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fas fa-book',
         ],
 
             // ダッシュボードリンク (既存)
@@ -309,6 +309,13 @@ return [
         'text' => '商品一覧・検索',
         'url'  => 'search/list', // ルートのURLまたは名前
         'icon' => 'fas fa-list',
+    ],
+
+    // マイページ
+    [
+        'text' => 'マイページ',
+        'url'  => 'account/profile',
+        'icon' => 'fas fa-user',
     ],
 
 
