@@ -104,7 +104,7 @@ Route::group (['middleware' => 'auth'],function() {
     // ホーム画面表示
     //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
     // トップページ
-    Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+    Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
     // マイページ表示
     Route::get('/account/profile/{id}', [AccountController::class,'profile'])->name('profile');

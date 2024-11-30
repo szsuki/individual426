@@ -56,7 +56,8 @@
 
         <div class="d-flex justify-content-center">
             <a class="link-primary" href="{{ route('profileEdit', auth()->user()) }}">
-                <button type="submit" class="btn btn-outline-info">編集</button>
+            <button type="submit" class="btn btn-outline-info">
+            <i class="fas fa-edit"></i> 編集</button>
             </a>
         </div>
         <div class="d-flex justify-content-center mt-2">
@@ -77,6 +78,51 @@
     .btn-outline-info, .btn-outline-secondary {
         margin-top: 20px; 
     }
+
+    body {
+    background-image: url('path_to_your_book_texture_image.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #f5f5dc; /* 画像がない場合のバックアップ */
+    }
+
+    h3 {
+    font-family: 'Times New Roman', serif;
+    color: #4a2c2a; /* 古書風の深いブラウン */
+    border-bottom: 3px solid #c4a484;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.table {
+    border-collapse: collapse;
+    background: rgba(255, 248, 220, 0.8); /* パーチメント紙風の背景 */
+    border: 1px solid #c4a484; /* 茶色い縁 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 10px;
+    font-family: 'Georgia', serif;
+    color: #4a2c2a; /* 深い茶色 */
+}
+
+.btn-outline-info, .btn-outline-secondary {
+    background-color: #f8f0e3; /* ページ風の色 */
+    border: 2px solid #c4a484;
+    color: #4a2c2a;
+    font-family: 'Georgia', serif;
+    transition: 0.3s;
+}
+
+.btn-outline-info:hover, .btn-outline-secondary:hover {
+    background-color: #c4a484; /* 茶色に変化 */
+    color: white;
+}
+
+
 </style>
 @stop
 
