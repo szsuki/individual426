@@ -54,6 +54,10 @@
             </div>
 
             <!-- パスワード -->
+             <h5>パスワード変更</h5>
+            <div id="passwordHelpBlock" class="form-text text-primary">
+                    ※パスワードを変更する場合は、現在のパスワードと新しいパスワードを入力してください。
+                </div>
             <div class="mb-1">
                 <label for="current_password" class="col-form-label">現在のパスワード</label>
                 <div class="position-relative">
@@ -62,11 +66,9 @@
                            id="password" 
                            name="current_password" 
                            placeholder="******">
-                    <i id="eye1" class="fa-regular fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
+                    <i id="eye1" class="fa fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
                 </div>
-                <div id="passwordHelpBlock" class="form-text text-primary">
-                    ※パスワードを変更する場合は、現在のパスワードと新しいパスワードを入力してください。
-                </div>
+
             </div>
 
             <div class="mb-1">
@@ -77,7 +79,7 @@
                            id="password2" 
                            name="password" 
                            placeholder="******">
-                    <i id="eye2" class="fa-regular fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
+                    <i id="eye2" class="fa fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
                 </div>
                 @error('password')
                     <div class="text-danger">{{ $message }}</div>
@@ -92,7 +94,7 @@
                            id="password3" 
                            name="password_confirmation" 
                            placeholder="******">
-                    <i id="eye3" class="fa-regular fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
+                    <i id="eye3" class="fa fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
                 </div>
             </div>
 
@@ -110,6 +112,13 @@
 @stop
 
 @section('css')
+
+ <style>
+    text-center pt-4 mt-4{
+        position: relative; /* 他の要素への影響を受けないようにするためにrelativeを使用 */
+        top: -10px; /* テキストを上に10px移動 */
+    }
+ </style>
 
 @stop
 
