@@ -53,8 +53,8 @@
                     
                     <div class="form-group">
                         <label for="detail">詳細</label>
-                        <input type="text" class="form-control" id="detail" name="detail" value="{{ old('detail', $item->detail) }}" placeholder="詳細説明">
-                    </div>
+                        <textarea class="form-control" id="detail" name="detail" placeholder="詳細説明" rows="5"></textarea>
+                        </div>
                     
                 <!--    <div class="form-group">
                         <label for="created_by">登録者</label>
