@@ -17,7 +17,7 @@
 
         <div class="card card-primary">
             <!-- 商品編集フォーム -->
-            <form method="POST" action="{{ route('item.update', $item->id) }}">
+            <form method="POST" action="{{ route('items.update', $item->id) }}">
                 @csrf
                 @method('PUT') <!-- PUTメソッドを使用して更新 -->
                 <div class="card-body">

@@ -48,7 +48,7 @@
                                     </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
-                                    <td class="align-middle text-center"><a href="/item/edit/{{$item->id}}" class="btn btn-outline-success btn-sm">編集</a></td>
+                                    <td class="align-middle text-center"><a href="/items/edit/{{$item->id}}" class="btn btn-outline-success btn-sm">編集</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

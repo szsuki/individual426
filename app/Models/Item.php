@@ -20,6 +20,7 @@ class Item extends Model
         'detail',
         
     ];
+    public $timestamps = true;
 
     /**
      * The attributes that should be hidden for serialization.

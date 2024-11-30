@@ -26,12 +26,13 @@ class ItemController extends Controller
 
     // 商品一覧をページネーション付きで取得
     $items = Item::paginate(10);
+    $this->data['items'] = $items;
 
     // 登録件数を取得
     $totalItems = Item::count();
 
     // ビューにデータを渡す
-    return view('item.index', compact('items', 'totalItems'));
+    return view('items.index', compact('items', 'totalItems'));
         
     }
 
@@ -45,6 +46,10 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'required',
+                'price' => 'required|numeric|min:0',
+                'stock' => 'required|integer|min:0',
+                'detail' => 'nullable|max:1000',
             ]);
 
             // 商品登録
@@ -57,12 +62,16 @@ class ItemController extends Controller
                 'detail' => $request->detail,
             ]);
             // 登録後、商品一覧にリダイレクト
-            return redirect('/item');
+            return redirect()->route('items.index')->with('success', '商品が登録されました');
         }
         // GETリクエストの場合、商品登録フォームを表示
-        return view('item.add');
+        return view('items.add');
     }
-
+    public function show($id)
+    {
+        $item = Item::findOrFail($id);  // アイテムをIDで取得
+        return view('items.add', compact('item'));
+    }
     //商品編集
     public function edit($id)
     {
@@ -70,7 +79,7 @@ class ItemController extends Controller
     $item = Item::findOrFail($id); // 該当する商品がない場合は404エラーを返す
 
     // 編集画面を表示し、商品データを渡す
-    return view('item.edit', compact('item'));
+    return view('items.edit', compact('item'));
     }
 
     public function update(Request $request, $id)
@@ -81,6 +90,8 @@ class ItemController extends Controller
         'type' => 'required|integer',
         'detail' => 'nullable|string|max:1000',
         'price' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+
     ]);
 
     // 商品をIDで検索し取得
@@ -98,6 +109,7 @@ class ItemController extends Controller
     {
         // 商品をIDで検索し、削除
         $item = Item::findOrFail($id);
+        // 商品を削除
         $item->delete();
 
         // 削除後、商品一覧画面にリダイレクト
@@ -109,33 +121,36 @@ class ItemController extends Controller
     public function store(Request $request, $id = null)  // $id パラメータを追加（新規登録と更新の両方に対応）
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
-            'detail' => 'required|string|max:1000',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'name' => 'required|string|max:255',   // 商品名
+            'type' => 'required|string|max:255',  // 商品タイプ
+            'detail' => 'required|string|max:1000', // 商品詳細
+            'price' => 'required|numeric|min:0',  // 価格
+            'stock' => 'required|integer|min:0',  // 在庫数
             //'created_by' => 'nullable|string',  // こちらはそのままでOK
         ]);
     
         // ログインユーザーIDまたはデフォルト値を設定
         $validated['user_id'] = auth()->id();
         //$validated['created_by'] = $validated['created_by'] ?? '';  // もし空であれば空文字に設定
-    
+
+        
+            // 新しい商品情報を作成しデータベースに保存する
+            $item = Item::create($validated);
         // 商品更新（$idが存在すれば更新、存在しなければ新規作成）
-        if ($id) {
-            // 商品をIDで取得
-            $item = Item::findOrFail($id);
+//        if ($id) {
+//            // 商品をIDで取得
+//            $item = Item::findOrFail($id);
             // 更新
-            $item->update($validated);
-        } else {
-            // 新規商品作成
-            $item = new Item();
-            $item->fill($validated);
-            $item->save();
-        }
+//            $item->update($validated);
+//        } else {
+//            // 新規商品作成
+//            $item = new Item();
+//            $item->fill($validated);
+//            $item->save();
+//        }
     
-        // 成功メッセージとともに商品一覧ページにリダイレクト
-        return redirect()->route('items.index')->with('success', $id ? '商品が更新されました！' : '商品が登録されました！');
+          // 保存後、商品管理ページにリダイレクトする
+          return redirect('/items')->with('success', "商品ID「{$item->id}」を登録しました。");
     }
     
     
