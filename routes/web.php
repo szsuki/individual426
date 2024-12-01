@@ -97,7 +97,10 @@ Route::group(['middleware' => 'can:admin'], function() {
 
 
 });
-
+// ルートURLにアクセスした場合、/home にリダイレクト
+Route::get('/', function () {
+    return redirect('/home');
+});
 // 共有ルート(管理者・ユーザー)
 Route::group (['middleware' => 'auth'],function() {
 
