@@ -35,11 +35,8 @@ class UserController extends Controller
 
     public function index() // ユーザー一覧画面表示
     {
-<<<<<<< HEAD
-=======
         //dd(Auth::user()); // ここでデバッグ情報を表示
 
->>>>>>> main
         $users = User::all();
         return view('users.index', compact('users'));
     }

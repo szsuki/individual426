@@ -82,34 +82,6 @@ class ItemController extends Controller
     return view('items.edit', compact('item'));
     }
 
-<<<<<<< HEAD
-    public function store(Request $request)
-{
-        // バリデーションルールの定義
-    $validated = $request->validate([
-        'name' => 'required|string|max:255',
-        'type' => 'required|string|max:255',
-        'price' => 'required|numeric|min:0', // 価格が必須で0以上
-        'stock' => 'required|integer|min:0', // 在庫数も必須で0以上
-        'code' => 'required|string|max:100|unique:items,code', // 商品コードが必須で一意
-        'detail' => 'nullable|string|max:500', // 詳細は任意
-        'created_by' => 'required|string|max:255', // 登録者が必須
-    ]);
-
-    // データを保存
-    Item::insert([
-        'name' => $validated['name'],
-        'type' => $validated['type'],
-        'detail' => $validated['detail'],
-        'user_id' => auth()->id(),
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
-
-
-    // user_id を明示的に追加
-    $validated['user_id'] = auth()->id();
-=======
     public function update(Request $request, $id)
     {
     // バリデーション
@@ -124,7 +96,6 @@ class ItemController extends Controller
 
     // 商品をIDで検索し取得
     $item = Item::findOrFail($id);
->>>>>>> main
 
     // 商品データを更新
     $item->update($validated);
