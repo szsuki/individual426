@@ -138,7 +138,7 @@ class ItemController extends Controller
             'stock.integer' => '在庫数は整数で入力してください。',
             'stock.min' => '在庫数は0以上の値を入力してください。',
             'detail.required' => '詳細を入力してください。',
-            'detail.max' => '詳細は65535文字以内で入力してください。',
+            'detail.max' => '詳細は500文字以内で入力してください。',
         ]);
     
         // ログインユーザーIDまたはデフォルト値を設定
