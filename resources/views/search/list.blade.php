@@ -17,13 +17,21 @@
     <!-- 検索フォーム -->
     <form method="GET" action="{{ route('search.list') }}" class="search-container">
         <div class="form-group">
-            <select name="type" class="form-select" style="width: 100%">
+            <select name="type" class="form-select" style="width: 10%">
                 <option value="">種別</option>
+<<<<<<< HEAD
                 <option value="1" {{ request('type') == '1' ? 'selected' : '' }}>1.文芸</option>
                 <option value="2" {{ request('type') == '2' ? 'selected' : '' }}>2.絵本</option>
                 <option value="3" {{ request('type') == '3' ? 'selected' : '' }}>3.漫画</option>
                 <option value="4" {{ request('type') == '4' ? 'selected' : '' }}>4.雑誌</option>
                 <option value="5" {{ request('type') == '5' ? 'selected' : '' }}>5.その他</option>
+=======
+                <option value="1" {{ request('type') == '1' ? 'selected' : '' }}>文芸</option>
+                <option value="2" {{ request('type') == '2' ? 'selected' : '' }}>絵本</option>
+                <option value="3" {{ request('type') == '3' ? 'selected' : '' }}>漫画</option>
+                <option value="4" {{ request('type') == '4' ? 'selected' : '' }}>雑誌</option>
+                <option value="5" {{ request('type') == '5' ? 'selected' : '' }}>その他</option>
+>>>>>>> main
             </select>
         </div>
         
@@ -45,10 +53,17 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+<<<<<<< HEAD
                                 <th>名前</th>
                                 <th>種別</th>
                                 <th>登録日時</th>
                                 <th>更新日時</th>
+=======
+                                <th>商品名</th>
+                                <th>種別</th>
+                                <th>登録日時</th>
+                                <th>更新日時</th> <!-- 更新日時の列を追加 -->
+>>>>>>> main
                             </tr>
                         </thead>
                         <tbody>
@@ -56,15 +71,32 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
+<<<<<<< HEAD
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
                                     <td><a href="{{ route('search.show', $item->id) }}" class="btn_03">詳細</a></td>
+=======
+                                    <td>
+                                    @switch($item->type)
+                                    @case(1) 文芸 @break
+                                    @case(2) 絵本 @break
+                                    @case(3) 漫画 @break
+                                    @case(4) 雑誌 @break
+                                    @default その他
+                                    @endswitch
+                                    </td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
+                                    <td><a href="{{ route('search.show', $item->id) }}" class="btn_03">詳細</a></td>
+
+>>>>>>> main
                                 </tr>
                             @empty
                                 <tr>
                                     <td colspan="6">データが見つかりませんでした。</td>
                                 </tr>
+<<<<<<< HEAD
 
                             @endforelse
                         </tbody>
@@ -73,16 +105,75 @@
             </div>
         </div>
     </div>
+=======
+                            @endforelse
 
-    <!-- ページネーション -->
-    <div class="pagination mt-4 d-flex justify-content-center">
-        {{ $items->links('pagination::bootstrap-5') }}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- ページネーション -->
+        @if ($items->hasPages())
+        <div class="pagination mt-4 d-flex justify-content-center">
+    {{ $items->links('pagination::bootstrap-5') }}
+    </div>
+        @endif
+            </div>
+        </div>
     </div>
 @stop
+        </tbody>
+    </table>
+>>>>>>> main
+
+
+    
+    <!-- ページネーション -->
+    <!--<div class="d-flex justify-content-center mt-4">
+        {{ $items->links('pagination::bootstrap-5') }}
+    </div> -->
+
 
 {{-- カスタムCSS --}}
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+
+    <style>
+    /*ページネーション
+     ページネーションのテキスト */
+        p.small.text-muted {
+            display:none;
+        }
+
+        /* 検索フォームの横並び配置 */
+        .search-container {
+            display: flex;
+            align-items: center; /* 垂直方向の位置を中央に揃える */
+            gap: 10px; /* 各要素の間隔を調整 */
+            margin-top: 20px; /* 上側に20pxの余白を設定 */
+
+        }
+
+        /* テキストボックスの可変幅 */
+        .search-bar {
+            min-width: 350px; /* 最小幅を設定 */
+        }
+
+        /* ドロップダウンの幅調整 */
+        .form-select {
+        
+            width: auto; /* 必要な幅に応じてサイズを調整 */
+            min-width: 150px; /* 最小幅を設定 */
+        }
+
+        /* ボタンのデザイン調整 */
+        .btn-secondary {
+            white-space: nowrap; /* ボタンのテキストが折り返されないようにする */
+        }
+
+
+
+    </style>
+
 @stop
 
 {{-- カスタムJavaScript --}}

@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();  // 商品ID (自動採番)
             $table->unsignedBigInteger('user_id')->nullable(); // 修正: `change()` を削除
             $table->string('name', 100)->index();  // 商品名
-            $table->string('type', 100)->nullable();  // カテゴリ
-            $table->decimal('price', 10, 2);  // 価格 (小数点2桁まで)
+            $table->tinyinteger('type');
+            $table->decimal('price', 10, 2)->default(0)->change();  // 価格 (小数点2桁まで)
             $table->integer('stock');  // 在庫数
             $table->string('detail', 500)->nullable();
+<<<<<<< HEAD
+=======
+            $table->string('created_by')->nullable();  // 登録者
+>>>>>>> main
             $table->timestamps();  // 登録日時、更新日時
 
             // 外部キー制約
@@ -29,8 +33,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('items'); // 修正: テーブル全体を削除
+        Schema::dropIfExists('items');
     }
 };

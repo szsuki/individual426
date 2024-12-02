@@ -94,13 +94,13 @@ class AccountController extends Controller
     // プロフィール表示
     public function profile() {
         $auth = Auth::user();
-        return view('account.profile', ['auth' => Auth::user()]);
+        return view('account.profile', compact('auth'));
     }
     // プロフィール編集画面表示
     public function edit(Request $request,$page) {
         $auth = Auth::user();
         $page = $request->page;
-        return view('account.edit',compact('auth','page'));
+        return view('account.edit',compact('auth'));
     }
 // プロフィール編集処理
 public function update(Request $request, User $user) {

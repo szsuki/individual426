@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => '/',
+    'dashboard_url' => '/home',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -291,17 +291,17 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
+            'text' => '商品登録',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
+            'icon' => 'fas fa-book',
         ],
 
             // ダッシュボードリンク (既存)
-    [
-        'text' => 'Dashboard',
-        'url'  => 'dashboard',
-        'icon' => 'fas fa-tachometer-alt',
-    ],
+//    [
+//        'text' => 'Dashboard',
+//        'url'  => 'dashboard',
+//        'icon' => 'fas fa-tachometer-alt',
+//    ],
 
 
     // 商品一覧・検索リンク
@@ -309,6 +309,13 @@ return [
         'text' => '商品一覧・検索',
         'url'  => 'search/list', // ルートのURLまたは名前
         'icon' => 'fas fa-list',
+    ],
+
+    // マイページ
+    [
+        'text' => 'マイページ',
+        'url'  => 'account/profile',
+        'icon' => 'fas fa-user',
     ],
 
 

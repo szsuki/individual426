@@ -18,6 +18,11 @@ class UserController extends Controller
     /**
      * コンストラクタ
      */
+
+
+
+
+     
     public function __construct()
     {
         // 現在のユーザー情報を確認
@@ -30,6 +35,11 @@ class UserController extends Controller
 
     public function index() // ユーザー一覧画面表示
     {
+<<<<<<< HEAD
+=======
+        //dd(Auth::user()); // ここでデバッグ情報を表示
+
+>>>>>>> main
         $users = User::all();
         return view('users.index', compact('users'));
     }

@@ -12,7 +12,9 @@ class CreateAdminUser extends Command
      *
      * @var string
      */
-    protected $signature = 'make:admin'; // artisanコマンドの名前
+    protected $signature = 'make:admin'; // オプションを削除
+
+    // artisanコマンドの名前
 
     /**
      * The console command description.
@@ -35,8 +37,14 @@ class CreateAdminUser extends Command
         // 管理者情報を入力
         $name = $this->ask('Enter the admin name');
         $email = $this->ask('Enter the admin email');
-        $password = $this->secret('Enter the admin password'); // パスワード非表示入力
-
+        $password = $this->secret('password'); // 引数からパスワードを取得
+    
+        // パスワードが空の場合の処理
+        if (!$password) {
+            $this->error('Password cannot be empty. Please try again.');
+            return 1; // エラーコードを返して終了
+        }
+    
         // 管理者アカウントを作成
         $user = User::create([
             'name' => $name,
@@ -44,8 +52,9 @@ class CreateAdminUser extends Command
             'password' => bcrypt($password), // bcryptでハッシュ化
             'role' => 1, // 管理者を表す値
         ]);
-
+    
         // 成功メッセージを表示
         $this->info("Admin user created successfully: {$user->name}");
     }
+    
 }

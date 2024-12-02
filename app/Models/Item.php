@@ -18,10 +18,13 @@ class Item extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'code',
         'type',
+        'price',
+        'stock',
         'detail',
+        
     ];
+    public $timestamps = true;
 
     /**
      * The attributes that should be hidden for serialization.

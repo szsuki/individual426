@@ -72,7 +72,7 @@
         </tr>
         <tr>
             <th>価格</th>
-            <td>{{ $item->price }} 円</td>
+            <td>{{ number_format($item->price, 0) }} 円</td>
         </tr>
         <tr>
             <th>在庫数</th>
@@ -82,6 +82,11 @@
             <th>詳細</th>
             <td>{!! nl2br(e($item->detail)) !!}</td>
         </tr>
+        <!--<tr>
+            <th>登録者</th>
+            <td>{{ $item->created_by  }}</td>
+
+        </tr>-->
         <tr>
             <th>登録日時</th>
             <td>{{ $item->created_at }}</td>
