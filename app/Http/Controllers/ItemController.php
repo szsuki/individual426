@@ -126,7 +126,19 @@ class ItemController extends Controller
             'detail' => 'required|string|max:1000', // 商品詳細
             'price' => 'required|numeric|min:0',  // 価格
             'stock' => 'required|integer|min:0',  // 在庫数
-            //'created_by' => 'nullable|string',  // こちらはそのままでOK
+        ], [
+            'name.required' => '商品名を入力してください。',
+            'name.max' => '商品名は255文字以内で入力してください。',
+            'type.required' => '商品種別を選択してください。',
+            'type.in' => '選択された商品種別は無効です。',
+            'price.required' => '価格を入力してください。',
+            'price.numeric' => '価格は数値で入力してください。',
+            'price.min' => '価格は0以上の値を入力してください。',
+            'stock.required' => '在庫数を入力してください。',
+            'stock.integer' => '在庫数は整数で入力してください。',
+            'stock.min' => '在庫数は0以上の値を入力してください。',
+            'detail.required' => '詳細を入力してください。',
+            'detail.max' => '詳細は65535文字以内で入力してください。',
         ]);
     
         // ログインユーザーIDまたはデフォルト値を設定
