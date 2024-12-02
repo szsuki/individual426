@@ -67,7 +67,9 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">登録</button>
+                        <a href="{{ route('items.index') }}" class="btn btn-secondary">商品一覧に戻る</a>
                     </div>
+
                 </form>
             </div>
         </div>
