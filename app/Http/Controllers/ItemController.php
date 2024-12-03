@@ -86,15 +86,15 @@ class ItemController extends Controller
     {
     // バリデーション
     $validated = $request->validate([
-        'name' => 'required|string|max:255',
+        'name' => 'required|string|max:100',
         'type' => 'required|integer',
-        'detail' => 'repuired|string|max:1000',
+        'detail' => 'required|string|max:500',
         'price' => 'required|integer|min:0',
         'stock' => 'required|integer|min:0',
 
     ], [
         'name.required' => '商品名を入力してください。',
-        'name.max' => '商品名は255文字以内で入力してください。',
+        'name.max' => '商品名は100文字以内で入力してください。',
         'type.required' => '商品種別を選択してください。',
         'type.in' => '選択された商品種別は無効です。',
         'price.required' => '価格を入力してください。',
