@@ -137,7 +137,7 @@ class ItemController extends Controller
             'name' => 'required|string|max:100',   // 商品名
             'type' => 'required|string|max:255',  // 商品タイプ
             'detail' => 'required|string|max:500', // 商品詳細
-            'price' => 'required|integer|min:0',  // 価格
+            'price' => 'required|numeric|min:0',  // 価格
             'stock' => 'required|integer|min:0',  // 在庫数
         ], [
             'name.required' => '商品名を入力してください。',
