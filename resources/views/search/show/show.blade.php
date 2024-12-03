@@ -1,103 +1,113 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品詳細</title>
-    <style>
-        /*テーブル全体*/
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        
-        /*テーブルの内容*/
-        th, td {
-            padding: 10px;
-            border: 1px solid #333;
-        }
+@extends('adminlte::page')
 
-        /*テーブル*/
-        th {
-            background-color: #f8f8f8;
-            text-align: left;
-            width: 20%;
-        }
+@section('title', '商品詳細情報')
 
-        /*商品詳細情報のタイトル*/
-        h1 {
-            background: #c2edff;
-            padding: 0.5em;
-        }
-
-        /*戻るボタン*/
-        .back-button{
-            display: block;
-            width: 150px;
-            margin: 20px auto;
-            padding: 10px;
-            text-align: center;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-    </style>
-</head>
-
-<body>
-    <h1 style="text-align: center;">商品詳細情報</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <td>{{ $item->id }}</td>
-        </tr>
-        <tr>
-            <th>種別</th>
-            <td>
-            @switch($item->type)
-                @case(1) 文芸 @break
-                @case(2) 絵本 @break
-                @case(3) 漫画 @break
-                @case(4) 雑誌 @break
-                @default その他
-            @endswitch     
-            </td>
-        </tr>
-        <tr>
-            <th>商品名</th>
-            <td>{!! nl2br(e($item->name)) !!}</td>
-        </tr>
-        <tr>
-            <th>価格</th>
-            <td>{{ number_format($item->price, 0) }} 円</td>
-        </tr>
-        <tr>
-            <th>在庫数</th>
-            <td>{{ $item->stock }} 冊</td>
-        </tr>
-        <tr>
-            <th>詳細</th>
-            <td>{!! nl2br(e($item->detail)) !!}</td>
-        </tr>
-        <!--<tr>
-            <th>登録者</th>
-            <td>{{ $item->created_by  }}</td>
-
-        </tr>-->
-        <tr>
-            <th>登録日時</th>
-            <td>{{ $item->created_at }}</td>
-        </tr>
-        <tr>
-            <th>更新日時</th>
-            <td>{{ $item->updated_at }}</td>
-        </tr>
+@section('content')
+<div class="p-4 m-4 w-50 m-auto">
+    <h3 class="pt-4 m-4 text-center">商品詳細情報</h3>
+    <table class="table align-middle">
+        <tbody>
+            <tr>
+                <th class="text-secondary" style="width:30%">ID</th>
+                <td style="width:50%">{{ $item->id }}</td>
+            </tr>
+            <tr>
+                <th class="text-secondary">種別</th>
+                <td>
+                    @switch($item->type)
+                        @case(1) 文芸 @break
+                        @case(2) 絵本 @break
+                        @case(3) 漫画 @break
+                        @case(4) 雑誌 @break
+                        @default その他
+                    @endswitch
+                </td>
+            </tr>
+            <tr>
+                <th class="text-secondary">商品名</th>
+                <td>{!! nl2br(e($item->name)) !!}</td>
+            </tr>
+            <tr>
+                <th class="text-secondary">価格</th>
+                <td>{{ number_format($item->price, 0) }} 円</td>
+            </tr>
+            <tr>
+                <th class="text-secondary">在庫数</th>
+                <td>{{ $item->stock }} 冊</td>
+            </tr>
+            <tr>
+                <th class="text-secondary">詳細</th>
+                <td>{!! nl2br(e($item->detail)) !!}</td>
+            </tr>
+            <tr>
+                <th class="text-secondary">登録日時</th>
+                <td>{{ $item->created_at }}</td>
+            </tr>
+            <tr>
+                <th class="text-secondary">更新日時</th>
+                <td>{{ $item->updated_at }}</td>
+            </tr>
+        </tbody>
     </table>
 
-    <!-- 戻るボタン -->
-     <a href="{{ route('search.list') }}" class="back-button">一覧に戻る</a>
-</body>
-</html>
+    <div class="d-flex justify-content-center mt-2">
+        <a href="{{ route('search.list') }}" class="link-primary">
+            <button type="button" class="btn btn-outline-secondary">一覧に戻る</button>
+        </a>
+    </div>
+</div>
+@stop
+
+@section('css')
+<style>
+    body {
+        background-image: url('path_to_your_book_texture_image.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: #f5f5dc;
+    }
+
+    h3 {
+        font-family: 'Times New Roman', serif;
+        color: #4a2c2a;
+        border-bottom: 3px solid #c4a484;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .table {
+        border-collapse: collapse;
+        width: 100%;
+        background: rgba(255, 248, 220, 0.8);
+        border: 1px solid #c4a484;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .table th, .table td {
+        padding: 10px;
+        font-family: 'Georgia', serif;
+        color: #4a2c2a;
+        border-bottom: 1px solid #dee2e6 !important;
+    }
+
+    .table th {
+        background-color: #f8f8f8;
+        text-align: left;
+    }
+
+    .btn-outline-info, .btn-outline-secondary {
+        background-color: #f8f0e3;
+        border: 2px solid #c4a484;
+        color: #4a2c2a;
+        font-family: 'Georgia', serif;
+        transition: 0.3s;
+    }
+
+    .btn-outline-info:hover, .btn-outline-secondary:hover {
+        background-color: #c4a484;
+        color: white;
+    }
+</style>
+@stop
