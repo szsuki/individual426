@@ -66,7 +66,7 @@
                            id="password" 
                            name="current_password" 
                            placeholder="******">
-                    <i id="eye1" class="fa fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
+                    <i id="eye1" class="fa fa-eye toggle-eye position-absolute top-50 end-0 me-3 cursor-pointer"></i>
                 </div>
 
             </div>
@@ -99,7 +99,7 @@
             </div>
 
             <div class="d-flex justify-content-center">
-                <button type="submit" class="mt-4 btn btn-primary">編集する</button>
+                <button type="submit" class="mt-4 btn btn-primary">更新</button>
             </div>
             <div class="d-flex justify-content-center mt-2">
                 <a href="{{ route('profile', $auth->id) }}">
@@ -118,33 +118,41 @@
         position: relative; /* 他の要素への影響を受けないようにするためにrelativeを使用 */
         top: -10px; /* テキストを上に10px移動 */
     }
+
+    .toggle-eye {
+    font-size: 1.25rem;
+    color: #6c757d; /* グレー色 */
+    }
+    .toggle-eye:hover {
+    color: #000; /* ホバー時に黒色 */
+    }
+
  </style>
 
 @stop
 
 @section('js')
 <script>
-    // パスワードの可視化切り替え
-    function switchPasswordVisibility(passwordField, toggleIcon) {
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
-        }
-    }
+// パスワード可視化切り替え関数
+function togglePasswordVisibility(eyeId, passwordFieldId) {
+    const passwordField = document.getElementById(passwordFieldId);
+    const eyeIcon = document.getElementById(eyeId);
 
-    document.getElementById('eye1').addEventListener('click', function () {
-        switchPasswordVisibility(document.getElementById('password'), this);
-    });
-    document.getElementById('eye2').addEventListener('click', function () {
-        switchPasswordVisibility(document.getElementById('password2'), this);
-    });
-    document.getElementById('eye3').addEventListener('click', function () {
-        switchPasswordVisibility(document.getElementById('password3'), this);
-    });
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordField.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+}
+
+// イベントリスナーの追加
+document.getElementById('eye1').addEventListener('click', () => togglePasswordVisibility('eye1', 'password'));
+document.getElementById('eye2').addEventListener('click', () => togglePasswordVisibility('eye2', 'password2'));
+document.getElementById('eye3').addEventListener('click', () => togglePasswordVisibility('eye3', 'password3'));
+
 </script>
 @stop
