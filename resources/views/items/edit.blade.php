@@ -53,7 +53,7 @@
                     
                     <div class="form-group">
                         <label for="detail">詳細</label>
-                        <textarea class="form-control" id="detail" name="detail" placeholder="詳細説明" rows="5"></textarea>
+                        <textarea class="form-control" id="detail" name="detail" placeholder="詳細説明" rows="5">{{ old('detail', $item->detail) }}</textarea>
                         </div>
                     
                 <!--    <div class="form-group">

@@ -76,7 +76,7 @@
         </tr>
         <tr>
             <th>在庫数</th>
-            <td>{{ $item->stock }} 本</td>
+            <td>{{ $item->stock }} 冊</td>
         </tr>
         <tr>
             <th>詳細</th>
