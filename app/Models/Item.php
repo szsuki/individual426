@@ -37,4 +37,13 @@ class Item extends Model
      */
     protected $casts = [
     ];
+    public function setPriceAttribute($value)
+{
+    $this->attributes['price'] = intval($value); // 小数を切り捨て
+}
+
+public function getPriceAttribute($value)
+{
+    return intval($value); // 小数を返さない
+}
 }
