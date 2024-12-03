@@ -26,7 +26,7 @@ class AccountController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:100|alpha_num',
             'email' => 'required|email:rfc,filter|regex:/^[!-~]+$/|unique:users,email',
-            'password' => 'required|string|min:6|confirmed|regex:/\A(?=.*?[a-z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]+\z/i'
+            'password' => 'required|string|min:6|confirmed'
         ],
         [
             'name.required' => '名前は必須です。',
@@ -38,7 +38,6 @@ class AccountController extends Controller
             'password.required' => 'パスワードは必須です。',
             'password.min' => 'パスワードは6字以上255字以下で入力してください。',
             'password.confirmed' => 'パスワードが一致しません。',
-            'password.regex' => 'パスワードは、英字・数字・記号それぞれ少なくとも1文字を含んでいる必要があります。',
         ]);
         $user = User::create($validated);
 
@@ -110,7 +109,7 @@ public function update(Request $request, User $user) {
     $validated = $request->validate([
         'name' => 'required|string|max:100|alpha_num',
         'email' => 'required|email:rfc,filter|regex:/^[!-~]+$/|unique:users,email,'.Auth::user()->email.',email',
-        'password' => ['nullable','min:6','confirmed','regex:/\A(?=.*?[a-z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]+\z/i']
+        'password' => ['nullable','min:6','confirmed']
     ], 
     [
         'name.required' => '名前は必須です。',
@@ -121,7 +120,7 @@ public function update(Request $request, User $user) {
         'email.unique' => 'このメールアドレスはすでに使用されています。',
         'password.min' => 'パスワードは6字以上255字以下で入力してください。',
         'password.confirmed' => '入力したパスワードがパスワード（確認）と一致しません。',
-        'password.regex' => '半角英数字記号それぞれ一文字以上使用してください',
+
     ]);
     // パスワードの値に入力があれば
     if ($validated['password']) {
