@@ -66,7 +66,6 @@
                            id="password" 
                            name="current_password" 
                            placeholder="******">
-                    <i id="eye1" class="fa fa-eye toggle-eye position-absolute top-50 end-0 me-3 cursor-pointer"></i>
                 </div>
 
             </div>
@@ -79,7 +78,6 @@
                            id="password2" 
                            name="password" 
                            placeholder="******">
-                    <i id="eye2" class="fa fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
                 </div>
                 @error('password')
                     <div class="text-danger">{{ $message }}</div>
@@ -94,7 +92,6 @@
                            id="password3" 
                            name="password_confirmation" 
                            placeholder="******">
-                    <i id="eye3" class="fa fa-eye toggle-eye position-absolute translate-middle top-50 end-0"></i>
                 </div>
             </div>
 
@@ -119,13 +116,7 @@
         top: -10px; /* テキストを上に10px移動 */
     }
 
-    .toggle-eye {
-    font-size: 1.25rem;
-    color: #6c757d; /* グレー色 */
-    }
-    .toggle-eye:hover {
-    color: #000; /* ホバー時に黒色 */
-    }
+
 
  </style>
 
@@ -133,26 +124,6 @@
 
 @section('js')
 <script>
-// パスワード可視化切り替え関数
-function togglePasswordVisibility(eyeId, passwordFieldId) {
-    const passwordField = document.getElementById(passwordFieldId);
-    const eyeIcon = document.getElementById(eyeId);
-
-    if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        eyeIcon.classList.remove('fa-eye');
-        eyeIcon.classList.add('fa-eye-slash');
-    } else {
-        passwordField.type = 'password';
-        eyeIcon.classList.remove('fa-eye-slash');
-        eyeIcon.classList.add('fa-eye');
-    }
-}
-
-// イベントリスナーの追加
-document.getElementById('eye1').addEventListener('click', () => togglePasswordVisibility('eye1', 'password'));
-document.getElementById('eye2').addEventListener('click', () => togglePasswordVisibility('eye2', 'password2'));
-document.getElementById('eye3').addEventListener('click', () => togglePasswordVisibility('eye3', 'password3'));
 
 </script>
 @stop
