@@ -92,6 +92,19 @@ class ItemController extends Controller
         'price' => 'required|numeric|min:0',
         'stock' => 'required|integer|min:0',
 
+    ], [
+        'name.required' => '商品名を入力してください。',
+        'name.max' => '商品名は255文字以内で入力してください。',
+        'type.required' => '商品種別を選択してください。',
+        'type.in' => '選択された商品種別は無効です。',
+        'price.required' => '価格を入力してください。',
+        'price.numeric' => '価格は数値で入力してください。',
+        'price.min' => '価格は0以上の値を入力してください。',
+        'stock.required' => '在庫数を入力してください。',
+        'stock.integer' => '在庫数は整数で入力してください。',
+        'stock.min' => '在庫数は0以上の値を入力してください。',
+        'detail.required' => '詳細を入力してください。',
+        'detail.max' => '詳細は500文字以内で入力してください。',
     ]);
 
     // 商品をIDで検索し取得
@@ -121,14 +134,14 @@ class ItemController extends Controller
     public function store(Request $request, $id = null)  // $id パラメータを追加（新規登録と更新の両方に対応）
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',   // 商品名
+            'name' => 'required|string|max:100',   // 商品名
             'type' => 'required|string|max:255',  // 商品タイプ
-            'detail' => 'required|string|max:1000', // 商品詳細
+            'detail' => 'required|string|max:500', // 商品詳細
             'price' => 'required|numeric|min:0',  // 価格
             'stock' => 'required|integer|min:0',  // 在庫数
         ], [
             'name.required' => '商品名を入力してください。',
-            'name.max' => '商品名は255文字以内で入力してください。',
+            'name.max' => '商品名は100文字以内で入力してください。',
             'type.required' => '商品種別を選択してください。',
             'type.in' => '選択された商品種別は無効です。',
             'price.required' => '価格を入力してください。',

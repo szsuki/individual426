@@ -64,6 +64,7 @@ class RegisterController extends Controller
             'email.email' => '有効なメールアドレス形式で入力してください。',
             'email.max' => 'メールアドレスは50文字以内で入力してください。',
             'email.unique' => 'このメールアドレスは既に登録されています。',
+            'email.regex' => 'メールアドレスは .com、.jp、.net ドメインで入力してください。',
             'password.required' => 'パスワードを入力してください。',
             'password.min' => 'パスワードは8文字以上で入力してください。',
             'password.confirmed' => 'パスワード確認が一致しません。',
