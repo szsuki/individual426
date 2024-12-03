@@ -109,5 +109,10 @@
         background-color: #c4a484;
         color: white;
     }
+
+    .p-4.m-4.w-50.m-auto {
+    width: 70%; /* コンテナの幅を広げます。例: 70% */
+    }
+
 </style>
 @stop
