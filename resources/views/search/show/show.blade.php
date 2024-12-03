@@ -79,7 +79,7 @@
 
     .table {
         border-collapse: collapse;
-        width: 100%;
+        width: 800px;
         background: rgba(255, 248, 220, 0.8);
         border: 1px solid #c4a484;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
