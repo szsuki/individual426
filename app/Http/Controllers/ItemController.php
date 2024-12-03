@@ -88,7 +88,7 @@ class ItemController extends Controller
     $validated = $request->validate([
         'name' => 'required|string|max:255',
         'type' => 'required|integer',
-        'detail' => 'nullable|string|max:1000',
+        'detail' => 'repuired|string|max:1000',
         'price' => 'required|numeric|min:0',
         'stock' => 'required|integer|min:0',
 

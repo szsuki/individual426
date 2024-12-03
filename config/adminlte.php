@@ -291,7 +291,7 @@ return [
 
     'menu' => [
         [
-            'text' => '商品登録',
+            'text' => '商品登録・編集',
             'url'  => 'items',
             'icon' => 'fas fa-book',
         ],
