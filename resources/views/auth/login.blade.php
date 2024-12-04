@@ -83,7 +83,7 @@
 @section('css')
     <style>
     .card {
-        width: 400px;  /* カード全体の幅を設定 */
+        width: 100px;  /* カード全体の幅を設定 */
         margin: 0 auto; /* カードを中央に配置 */
     }
 
