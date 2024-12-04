@@ -82,11 +82,19 @@
 
 @section('css')
     <style>
-    .col-md-8{
-        width: 200px;  /* 幅を変更して縦長にする */
-        height: 500px; /* 高さを調整 */
-        margin: 0 auto; /* カードを中央に配置 */
-    }
+.card {
+    width: 400px;  /* 横幅を狭くする */
+    height: 500px; /* 高さを縦長に調整 */
+    margin: 0 auto; /* カードを中央に配置 */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
     </style>
 
 @stop
