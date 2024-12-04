@@ -83,8 +83,8 @@
 @section('css')
     <style>
         .card-body {
-            width: 400px !important;  /* 横幅を狭くする */
-            height: 500px !important; /* 高さを縦長に調整 */
+            width: 100px !important;  /* 横幅を狭くする */
+            height: 100px !important; /* 高さを縦長に調整 */
         }
 
     </style>
