@@ -109,6 +109,14 @@
         max-width: 950px;
         margin-top: 20px; /* 上部に余白を追加 */
         }
+        .row {
+        display: flex;
+        lign-items: stretch;  /* カードの高さを揃える */
+        }
+
+        .card {
+        flex: 1; /* すべてのカードが同じ高さになるように */
+        }
     </style>
 @stop
 
