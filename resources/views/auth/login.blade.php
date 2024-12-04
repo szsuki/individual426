@@ -78,4 +78,27 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
+
+@section('css')
+    <style>
+        .card {
+    width: 400px;  /* 幅を変更して縦長にする */
+    height: 500px; /* 高さを調整 */
+    margin: 0 auto; /* カードを中央に配置 */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+    </style>
+
+@stop
+
+@section('js')
+@stop
+
