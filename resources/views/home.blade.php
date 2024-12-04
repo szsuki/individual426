@@ -10,20 +10,24 @@
     <p>ようこそ、図書館へ</p>
 
     <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5>新着情報</h5>
-                </div>
-                <div class="card-body">
-                    <!-- アクティビティリスト -->
-                    <ul>
-                        <li>ログインしました</li>
-                        <li>新しい投稿を作成しました</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="card mt-4">
+    <div class="card-header">
+        <h5>新着商品</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            @forelse ($newItems as $newItem)
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>{{ $newItem->name }}</span>
+                    <a href="{{ route('search.show', $newItem->id) }}" class="btn btn-sm btn-primary">詳細</a>
+                </li>
+            @empty
+                <p>新着商品はありません。</p>
+            @endforelse
+        </ul>
+    </div>
+</div>
+
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">

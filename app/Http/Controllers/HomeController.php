@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+    // 新着商品を取得（最新5件）
+    $newItems = Item::orderBy('created_at', 'desc')->take(5)->get();
+
+    return view('home', [
+        'newItems' => $newItems,
+    ]);
     }
 }
