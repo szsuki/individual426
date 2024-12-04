@@ -35,7 +35,7 @@
                 <div class="card-body">
                     <!-- ユーザーステータス -->
                     <p>新着商品更新中</p>
-                    <p>フォロワー数: 100</p>
+                    <p>フォロワー数: 100人突破</p>
                 </div>
             </div>
         </div>
@@ -101,12 +101,13 @@
         }
 
         .col-lg-6{
-            max-width: 600px;
+        max-width: 600px;
         }
 
         .col-12{
+        margin-top: 20px; /* 上部に余白を追加 */
         max-width: 950px;
-        margin: 0 auto; 
+        margin-top: 20px; /* 上部に余白を追加 */
         }
     </style>
 @stop
