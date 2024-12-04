@@ -51,7 +51,7 @@ class LoginController extends Controller
     ]);
 
     if (Auth::attempt($request->only('email', 'password'), $request->filled('remember'))) {
-        return redirect()->intended('dashboard'); // ログイン成功時のリダイレクト先
+        return redirect()->intended('home'); // ログイン成功時のリダイレクト先
     }
 
     // ログイン失敗時のエラーメッセージ
