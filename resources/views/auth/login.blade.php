@@ -83,9 +83,9 @@
 @section('css')
     <style>
 .card {
-    width: 400px;  /* 横幅を狭くする */
-    height: 500px; /* 高さを縦長に調整 */
-    margin: 0 auto; /* カードを中央に配置 */
+    width: 400px !important;  /* 横幅を狭くする */
+    height: 500px !important; /* 高さを縦長に調整 */
+    margin: 0 auto;           /* カードを中央に配置 */
 }
 
 .card-body {
