@@ -82,11 +82,14 @@
 
 @section('css')
     <style>
-        .card-body {
-            width: 100px !important;  /* 横幅を狭くする */
-            height: 100px !important; /* 高さを縦長に調整 */
-        }
+    .card {
+        width: 400px;  /* カード全体の幅を設定 */
+        margin: 0 auto; /* カードを中央に配置 */
+    }
 
+    .card-body {
+        padding: 20px; /* コンテンツの余白 */
+    }
     </style>
 
 @stop
