@@ -38,4 +38,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    public function login(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+    ]);
+
+    if (Auth::attempt($request->only('email', 'password'), $request->filled('remember'))) {
+        return redirect()->intended('dashboard'); // ログイン成功時のリダイレクト先
+    }
+
+    // ログイン失敗時のエラーメッセージ
+    return back()->withErrors([
+        'email' => 'メールアドレスまたはパスワードが間違っています。',
+    ])->onlyInput('email');
+}
 }
