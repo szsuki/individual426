@@ -54,19 +54,19 @@
         <div class="carousel-item active">
             <img src="/images/reading-2605540_640.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Vegetable</h5>
+                <h5>magazine</h5>
             </div>
         </div>
         <div class="carousel-item">
             <img src="/images/1.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Seafood</h5>
+                <h5>library</h5>
             </div>
         </div>
         <div class="carousel-item">
             <img src="/images/2.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Fruits</h5>
+                <h5>book</h5>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
         }
 
         .col-12{
-        max-width: 850px;
+        max-width: 950px;
         margin: 0 auto; 
         }
     </style>
