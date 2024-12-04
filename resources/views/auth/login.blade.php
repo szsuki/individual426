@@ -82,7 +82,7 @@
 
 @section('css')
     <style>
-        .col-md-8{
+        div.col-md-8{
             width: 400px !important;  /* 横幅を狭くする */
             height: 500px !important; /* 高さを縦長に調整 */
         }
