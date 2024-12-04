@@ -103,6 +103,11 @@
         .col-lg-6{
             max-width: 600px;
         }
+
+        .col-12{
+        max-width: 750px;
+
+        }
     </style>
 @stop
 
