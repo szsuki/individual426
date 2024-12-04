@@ -83,7 +83,7 @@
 @section('css')
     <style>
     .col-md-8{
-        width: 400px;  /* 幅を変更して縦長にする */
+        width: 200px;  /* 幅を変更して縦長にする */
         height: 500px; /* 高さを調整 */
         margin: 0 auto; /* カードを中央に配置 */
     }
