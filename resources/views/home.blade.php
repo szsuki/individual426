@@ -41,8 +41,8 @@
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-12">
+    <div class="row mt-4 text-center">
+        <div class="col-12 mx-auto">
             <!-- Carousel Section -->
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
