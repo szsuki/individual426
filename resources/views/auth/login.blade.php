@@ -82,7 +82,7 @@
 
 @section('css')
     <style>
-        div.col-md-8{
+        .card-body {
             width: 400px !important;  /* 横幅を狭くする */
             height: 500px !important; /* 高さを縦長に調整 */
         }
