@@ -90,7 +90,7 @@
     <style>
         /* 新着商品カード全体のサイズ調整 */
         .card.new-items-card {
-            max-width: 600px; /* カードの最大幅 */
+            max-width: 250px; /* カードの最大幅 */
             margin: 0 auto;  /* 中央に配置 */
         }
 
