@@ -105,8 +105,8 @@
         }
 
         .col-12{
-        max-width: 750px;
-
+        max-width: 850px;
+        margin: 0 auto; 
         }
     </style>
 @stop
