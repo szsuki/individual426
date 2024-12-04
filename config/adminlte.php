@@ -330,7 +330,7 @@ return [
     ['header' => 'その他'],
     [
         'text' => '外部リンク',
-        'url'  => 'https://example.com',
+        'url'  => 'https://x.com/?lang=ja',
         'icon' => 'fas fa-external-link-alt',
         'target' => '_blank', // 別タブで開く
     ],
