@@ -88,6 +88,8 @@
     }
 
     .card-body {
+        width: 100px;  /* カード全体の幅を設定 */
+
         padding: 20px; /* コンテンツの余白 */
     }
     </style>
