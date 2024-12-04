@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
     // 新着商品を取得（最新5件）
-    $Items = Item::orderBy('created_at', 'desc')->take(5)->get();
+    $items = Item::orderBy('created_at', 'desc')->take(5)->get();
     $types=[
         1 => "文芸",
         2 => "絵本",
