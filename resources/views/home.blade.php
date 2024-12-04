@@ -30,11 +30,11 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h5>Your Stats</h5>
+                    <h5>お知らせ</h5>
                 </div>
                 <div class="card-body">
                     <!-- ユーザーステータス -->
-                    <p>総投稿数: 20</p>
+                    <p>新着商品更新中</p>
                     <p>フォロワー数: 100</p>
                 </div>
             </div>
@@ -90,7 +90,7 @@
     <style>
         /* 新着商品カード全体のサイズ調整 */
         .card.mt-4 {
-            max-width: 500px; /* カードの最大幅 */
+            max-width: 600px; /* カードの最大幅 */
        
         }
 
@@ -98,6 +98,10 @@
         .list-group-item {
             padding: 10px 15px; /* アイテムの余白 */
             font-size: 14px; /* 文字サイズ */
+        }
+
+        .col-lg-6{
+            max-width: 600px;
         }
     </style>
 @stop
