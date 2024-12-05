@@ -29,7 +29,7 @@
                                 <th>商品名</th>
                                 <th>種別</th>
                                 <th>登録日時</th>
-                                <th>更新日時</th> <!-- 更新日時の列を追加 -->
+                                <th>更新日時</th> <!-- 更新日時の列 -->
                             </tr>
                         </thead>
                         <tbody>
@@ -71,10 +71,10 @@
 @section('css')
 <style>
     span.mr-3 {
-        margin-right: 80px;  /* 商品登録ボタンとの間隔を設定 */
+        margin-right: 80px;  /* 商品登録ボタンとの間隔 */
 
         position: relative;
-        right: 150px;  /* 右から40px離れた位置に配置 */
+        right: 150px;  /* 右から離れた位置に配置 */
     }
 </style>
 @stop

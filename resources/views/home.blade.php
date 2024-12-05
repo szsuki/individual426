@@ -88,16 +88,16 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
-        /* 新着商品カード全体のサイズ調整 */
+        /* 新着商品カード全体のサイズ */
         .card.mt-4 {
-            max-width: 600px; /* カードの最大幅 */
-            flex: 1; /* すべてのカードが同じ高さになるように */
+            max-width: 600px; /* 最大幅 */
+            flex: 1; /* 同じ高さになるように */
 
         }
 
-        /* リストのアイテム間隔を調整 */
+        /* リストの間隔を調整 */
         .list-group-item {
-            padding: 10px 15px; /* アイテムの余白 */
+            padding: 10px 15px; /* 余白 */
             font-size: 14px; /* 文字サイズ */
         }
 
@@ -106,13 +106,13 @@
         }
 
         .col-12{
-        margin-top: 20px; /* 上部に余白を追加 */
+        margin-top: 20px; /* 上部に余白 */
         max-width: 950px;
-        margin-top: 20px; /* 上部に余白を追加 */
+        margin-top: 20px; /* 上部に余白 */
         }
         .row {
         display: flex;
-        lign-items: stretch;  /* カードの高さを揃える */
+        lign-items: stretch;  /* 高さを揃える */
         }
 
 

@@ -112,8 +112,8 @@
 
  <style>
     text-center pt-4 mt-4{
-        position: relative; /* 他の要素への影響を受けないようにするためにrelativeを使用 */
-        top: -10px; /* テキストを上に10px移動 */
+        position: relative; /* 他の要素への影響を受けないようにする */
+        top: -10px; /* テキストを上に移動 */
     }
 
 

@@ -72,7 +72,7 @@
 @section('css')
 <style>
     .table td, .table th {
-    border-bottom: 1px solid #dee2e6 !important; /* ボーダーを明示的に追加 */
+    border-bottom: 1px solid #dee2e6 !important; /* ボーダー */
 }
 
     .btn-outline-info, .btn-outline-secondary {
@@ -88,7 +88,7 @@
 
     h3 {
     font-family: 'Times New Roman', serif;
-    color: #4a2c2a; /* 古書風の深いブラウン */
+    color: #4a2c2a; /* 古書風 */
     border-bottom: 3px solid #c4a484;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -98,8 +98,8 @@
 
 .table {
     border-collapse: collapse;
-    background: rgba(255, 248, 220, 0.8); /* パーチメント紙風の背景 */
-    border: 1px solid #c4a484; /* 茶色い縁 */
+    background: rgba(255, 248, 220, 0.8); /* 背景 */
+    border: 1px solid #c4a484; /* 茶色い */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -110,7 +110,7 @@
 }
 
 .btn-outline-info, .btn-outline-secondary {
-    background-color: #f8f0e3; /* ページ風の色 */
+    background-color: #f8f0e3; /* ページ風 */
     border: 2px solid #c4a484;
     color: #4a2c2a;
     font-family: 'Georgia', serif;
@@ -118,7 +118,7 @@
 }
 
 .btn-outline-info:hover, .btn-outline-secondary:hover {
-    background-color: #c4a484; /* 茶色に変化 */
+    background-color: #c4a484; /* 茶色 */
     color: white;
 }
 
