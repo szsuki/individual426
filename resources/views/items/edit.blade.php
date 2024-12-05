@@ -80,6 +80,10 @@
                     </script>
                 </div>
             </form>
+            <div class="d-flex justify-content-center mt-2">
+                <a href="{{ route('items', $auth->id) }}">
+                    <button class="btn btn-secondary" type="button">戻る</button>
+                </a>
         </div>
     </div>
 </div>
