@@ -137,8 +137,13 @@
             white-space: nowrap; /* ボタンのテキストが折り返されないようにする */
         }
 
-        element.style {
-            margin-top: 17px;
+        /**種別のドロップダウン */
+        .form-select {
+            width: auto;         /* 自動調整 */
+            min-width: 150px;    /* 最小幅 */
+            height: 38px;        /* 他の要素の高さに合わせる */
+            line-height: 1.2;    /* テキストの縦方向配置を調整 */
+            padding: 6px 12px;   /* 内側の余白 */
         }
 
     </style>
