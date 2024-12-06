@@ -73,7 +73,7 @@
 <style>
     .table td, .table th {
     border-bottom: 1px solid #dee2e6 !important; /* ボーダー */
-}
+    }
 
     .btn-outline-info, .btn-outline-secondary {
         margin-top: 20px; 
@@ -94,33 +94,33 @@
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
-}
+    }
 
-.table {
+    .table {
     border-collapse: collapse;
     background: rgba(255, 248, 220, 0.8); /* 背景 */
     border: 1px solid #c4a484; /* 茶色い */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
+    }
 
-.table th, .table td {
+    .table th, .table td {
     padding: 10px;
     font-family: 'Georgia', serif;
     color: #4a2c2a; /* 深い茶色 */
-}
+    }
 
-.btn-outline-info, .btn-outline-secondary {
+    .btn-outline-info, .btn-outline-secondary {
     background-color: #f8f0e3; /* ページ風 */
     border: 2px solid #c4a484;
     color: #4a2c2a;
     font-family: 'Georgia', serif;
     transition: 0.3s;
-}
+    }
 
-.btn-outline-info:hover, .btn-outline-secondary:hover {
+    .btn-outline-info:hover, .btn-outline-secondary:hover {
     background-color: #c4a484; /* 茶色 */
     color: white;
-}
+    }
 
 
 </style>

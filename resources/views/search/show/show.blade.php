@@ -60,40 +60,59 @@
 
 @section('css')
 <style>
-.table-container {
-    display: flex;
-    justify-content: center; /* テーブル全体を中央配置 */
-    margin: 20px auto; /* 上下にスペースを追加 */
-    max-width: 80%; /* 最大幅を設定 */
-}
+    body {
+        background-image: url('path_to_your_book_texture_image.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: #f5f5dc;
+    }
 
-.table {
-    width: 100%; /* 親コンテナに対する幅を調整 */
-    background: rgba(255, 248, 220, 0.8);
-    border: 1px solid #c4a484;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-collapse: collapse; /* テーブル枠線の重複を防ぐ */
-}
+    h3 {
+    font-family: 'Times New Roman', serif;
+    color: #4a2c2a; /* 古書風 */
+    border-bottom: 3px solid #c4a484;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    }
 
-.table th {
-    width: 30%; /* 列幅を固定 */
-    background-color: #f8f8f8;
-    text-align: left;
-    padding: 8px;
-    font-family: 'Georgia', serif;
-    color: #4a2c2a;
-}
+    .table {
+        border-collapse: collapse;
+        width: 800px;
+        background: rgba(255, 248, 220, 0.8);
+        border: 1px solid #c4a484;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.table td {
-    width: 70%; /* 残りのスペースを埋める */
-    padding: 8px;
-    font-family: 'Georgia', serif;
-    color: #4a2c2a;
-}
+    .table th, .table td {
+        padding: 10px;
+        font-family: 'Georgia', serif;
+        color: #4a2c2a;
+        border-bottom: 1px solid #dee2e6 !important;
+    }
 
-.table th, .table td {
-    border-bottom: 1px solid #dee2e6 !important;
-}
+    .table th {
+        background-color: #f8f8f8;
+        text-align: left;
+    }
+
+    .btn-outline-info, .btn-outline-secondary {
+        background-color: #f8f0e3;
+        border: 2px solid #c4a484;
+        color: #4a2c2a;
+        font-family: 'Georgia', serif;
+        transition: 0.3s;
+    }
+
+    .btn-outline-info:hover, .btn-outline-secondary:hover {
+        background-color: #c4a484;
+        color: white;
+    }
+
+    .p-4.m-4.w-50.m-auto {
+    width: 70%; /* コンテナの幅を広げます。 */
+    }
 
 </style>
 @stop
