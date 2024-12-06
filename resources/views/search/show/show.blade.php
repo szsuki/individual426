@@ -60,13 +60,16 @@
 
 @section('css')
 <style>
-    body {
-        background-image: url('path_to_your_book_texture_image.jpg');
-        background-size: cover;
-        background-attachment: fixed;
-        background-color: #f5f5dc;
+    .table-wrapper {
+    display: flex;               /* フレックスボックスを利用 */
+    justify-content: center;     /* 水平方向中央揃え */
+    align-items: center;         /* 垂直方向中央揃え */
+    margin: 20px auto;           /* 上下にスペースを追加 */
+    padding: 20px;               /* 見栄えを調整 */
+    max-width: 100%;             /* 最大幅を制限 */
     }
 
+    /**タイトル */
     h3 {
     font-family: 'Times New Roman', serif;
     color: #4a2c2a; /* 古書風 */
