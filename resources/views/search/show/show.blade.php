@@ -85,20 +85,20 @@
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .table th, .table td {
-        padding: 10px;
-        font-family: 'Georgia', serif;
-        color: #4a2c2a;
-        border-bottom: 1px solid #dee2e6 !important;
-    }
-
     .table th {
-        width: 30%;
+        width: 30%; /* 列幅を固定 */
         background-color: #f8f8f8;
         text-align: left;
+        padding: 8px;
+        font-family: 'Georgia', serif;
+        color: #4a2c2a;
     }
+
     .table td {
         width: 70%; /* 残りのスペースを埋める */
+        padding: 8px;
+        font-family: 'Georgia', serif;
+        color: #4a2c2a;
     }
 
     .btn-outline-info, .btn-outline-secondary {
