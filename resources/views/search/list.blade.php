@@ -128,8 +128,8 @@
         /* ドロップダウンの幅調整 */
         .form-select {
         
-            width: auto; /* 必要な幅に応じてサイズを調整 */
-            min-width: 150px; /* 最小幅を設定 */
+            width: auto; 
+            min-width: 150px; 
         }
 
         /* ボタンのデザイン調整 */
@@ -137,7 +137,9 @@
             white-space: nowrap; /* ボタンのテキストが折り返されないようにする */
         }
 
-
+        element.style {
+            margin-top: 17px;
+        }
 
     </style>
 
