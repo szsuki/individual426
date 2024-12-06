@@ -88,6 +88,7 @@
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    /**項目の列 */
     .table th {
         width: 30%; /* 列幅を固定 */
         background-color: #f8f8f8;
@@ -97,8 +98,9 @@
         color: #4a2c2a;
     }
 
+    /**内容の列 */
     .table td {
-        width: 70%; /* 残りのスペースを埋める */
+        width: 70%; 
         padding: 8px;
         font-family: 'Georgia', serif;
         color: #4a2c2a;
