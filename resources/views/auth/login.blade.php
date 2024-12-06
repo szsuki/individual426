@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8" max-width: 100px;>
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('商品管理システム') }}</div>
 
@@ -82,16 +82,11 @@
 
 @section('css')
     <style>
-    .card {
-        width: 100px;  /* カード全体の幅を設定 */
+    .col-md-8 {
+        width: 50%;  /* カード全体の幅を設定 */
         margin: 0 auto; /* カードを中央に配置 */
     }
 
-    .card-body {
-        width: 100px;  /* カード全体の幅を設定 */
-
-        padding: 20px; /* コンテンツの余白 */
-    }
     </style>
 
 @stop
