@@ -93,8 +93,12 @@
     }
 
     .table th {
+        width: 30%;
         background-color: #f8f8f8;
         text-align: left;
+    }
+    .table td {
+        width: 70%; /* 残りのスペースを埋める */
     }
 
     .btn-outline-info, .btn-outline-secondary {
