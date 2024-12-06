@@ -101,6 +101,17 @@
                 font-size: 14px; /* 文字サイズ */
             }
 
+            .col-lg-6{
+            max-width: 600px;
+            }
+
+            /**スライド画像 */
+            .col-12{
+            margin-top: 20px; /* 上部に余白 */
+            max-width: 950px;
+            margin-top: 20px; /* 上部に余白 */
+            }
+
 
 
         </style>
