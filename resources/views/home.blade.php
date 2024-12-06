@@ -101,9 +101,22 @@
                 font-size: 14px; /* 文字サイズ */
             }
 
-            .col-lg-6{
-            max-width: 600px;
-            }
+            .row {
+    display: flex;            /* Flexboxを有効化 */
+    justify-content: space-between; /* 子要素間にスペースを均等に配置 */
+    gap: 20px;                /* カード間の隙間 */
+}
+
+.col-lg-6 {
+    flex: 1;                  /* 子要素の幅を均等にする */
+    max-width: 48%;           /* カードが横並びで収まるよう設定 */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;   /* カード内の要素を縦に並べる */
+    height: 100%;             /* 高さを揃える */
+}
 
             /**スライド画像 */
             .col-12{
