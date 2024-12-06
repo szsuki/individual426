@@ -139,6 +139,7 @@
 
         /**種別のドロップダウン */
         .form-select {
+            margin-top: 17px;
             width: auto;         /* 自動調整 */
             min-width: 150px;    /* 最小幅 */
             height: 38px;        /* 他の要素の高さに合わせる */
