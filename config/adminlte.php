@@ -294,6 +294,7 @@ return [
             'text' => '商品登録・編集',
             'url'  => 'items',
             'icon' => 'fas fa-book',
+            'can' => 'admin'
         ],
 
             // ダッシュボードリンク (既存)
@@ -309,7 +310,6 @@ return [
         'text' => '商品一覧・検索',
         'url'  => 'search/list', // ルートのURLまたは名前
         'icon' => 'fas fa-list',
-        'can' => 'admin'
     ],
 
     // マイページ
@@ -325,6 +325,7 @@ return [
         'text' => 'ユーザー管理',
         'url'  => 'users',
         'icon' => 'fas fa-plus',
+        'can' => 'admin'
     ],
 
     // その他のリンク
@@ -334,6 +335,7 @@ return [
         'url'  => 'https://x.com/?lang=ja',
         'icon' => 'fas fa-external-link-alt',
         'target' => '_blank', // 別タブで開く
+        'can' => 'admin'
     ],
 
 
