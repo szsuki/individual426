@@ -309,6 +309,7 @@ return [
         'text' => '商品一覧・検索',
         'url'  => 'search/list', // ルートのURLまたは名前
         'icon' => 'fas fa-list',
+        'can' => 'admin'
     ],
 
     // マイページ
