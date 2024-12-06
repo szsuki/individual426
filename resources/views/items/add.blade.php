@@ -46,7 +46,7 @@
 
                         <div class="form-group">
                             <label for="price">価格</label>
-                            <input type="text" class="form-control" id="price" name="price" placeholder="価格">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="価格" min="0" max="9999999" step="1">
                         </div>
                         
                         <div class="form-group">
