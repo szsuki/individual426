@@ -147,6 +147,21 @@
             padding: 6px 12px;   /* 内側の余白 */
         }
 
+        body {
+    background-color: #f9f6f1; /* ベージュ */
+    font-family: 'Georgia', serif; /* 読書の雰囲気を演出 */
+}
+
+h1, h3 {
+    color: #5b4636; /* 落ち着いたブラウン */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* やさしい影 */
+}
+
+.item-count {
+    color: #6b4e3d;
+    font-weight: bold;
+}
+
     </style>
 
 @stop
