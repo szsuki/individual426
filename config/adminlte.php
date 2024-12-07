@@ -329,7 +329,7 @@ return [
     ],
 
     // その他のリンク
-    ['header' => 'その他'],
+    ['header' => 'その他', 'can' => 'admin'],
     [
         'text' => '外部リンク',
         'url'  => 'https://x.com/?lang=ja',

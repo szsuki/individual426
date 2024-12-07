@@ -7,13 +7,15 @@
 @stop
 
 @section('content')
+    <!-- 件数の表示 -->
+    <p class="item-count">登録件数: {{ $totalItems }} 件</p>
+
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">商品一覧</h3>
                     <div class="card-tools">
-                        <span class="mr-3">登録件数: {{ $totalItems }} 件</span>
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
                                 <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
@@ -70,12 +72,7 @@
     </div> -->
 @section('css')
 <style>
-    span.mr-3 {
-        margin-right: 80px;  /* 商品登録ボタンとの間隔 */
 
-        position: relative;
-        right: 150px;  /* 右から離れた位置に配置 */
-    }
 </style>
 @stop
 
