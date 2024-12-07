@@ -80,13 +80,13 @@ body {
 }
 
 /* ヘッダー部分 */
-.content-header h1 {
+.card-header {
     color: #6b4e3d; /* 暖かみのあるブラウン */
     text-shadow: 1px 1px 2px #d4b89a; /* 柔らかい影 */
 }
 
 /* テーブルスタイル */
-.table-hover thead th {
+.col-12 {
     background-color: #e0d3c1; /* 本のページのような色 */
     color: #4b3828; /* クラシックなダークブラウン */
     text-transform: uppercase;
