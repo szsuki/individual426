@@ -162,6 +162,17 @@ h1, h3 {
     font-weight: bold;
 }
 
+/* 詳細リンクスタイル */
+.btn_03 {
+    border-color: #8c6d62;
+    color: #6b4e3d;
+    font-weight: bold;
+}
+
+.btn_03 {
+    background-color: #8c6d62;
+    color: #fff;
+}
     </style>
 
 @stop
