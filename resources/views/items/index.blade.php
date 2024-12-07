@@ -73,6 +73,81 @@
 @section('css')
 <style>
 
+/* ページ全体の背景とカードスタイル */
+body {
+    background-color: #f5f5dc; /* ベージュっぽい背景 */
+    font-family: 'Georgia', serif; /* 読書をイメージしたフォント */
+}
+
+/* ヘッダー部分 */
+.content-header h1 {
+    color: #6b4e3d; /* 暖かみのあるブラウン */
+    text-shadow: 1px 1px 2px #d4b89a; /* 柔らかい影 */
+}
+
+/* テーブルスタイル */
+.table-hover thead th {
+    background-color: #e0d3c1; /* 本のページのような色 */
+    color: #4b3828; /* クラシックなダークブラウン */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.table-hover tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f4f1e1; /* ホバー時に本の紙っぽい色 */
+}
+
+/* 各列のスタイル */
+.table-hover td {
+    color: #5a4636;
+}
+
+/* ボタンスタイル */
+.btn-outline-success {
+    border-color: #8c6d62;
+    color: #6b4e3d;
+    font-weight: bold;
+}
+
+.btn-outline-success:hover {
+    background-color: #8c6d62;
+    color: #fff;
+}
+
+
+
+/* 種別ごとのスタイル */
+.table-hover .type-1 { /* 文芸 */
+    background-color: #e6dcc3;
+    color: #5b4631;
+}
+
+.table-hover .type-2 { /* 絵本 */
+    background-color: #f9f2dc;
+    color: #885a2a;
+}
+
+.table-hover .type-3 { /* 漫画 */
+    background-color: #e0e8f0;
+    color: #2a4c74;
+}
+
+.table-hover .type-4 { /* 雑誌 */
+    background-color: #ffe4e1;
+    color: #842929;
+}
+
+.table-hover .type-5 { /* その他 */
+    background-color: #f3f3f3;
+    color: #555;
+}
+
+
 </style>
 @stop
 
