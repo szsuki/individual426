@@ -81,7 +81,7 @@
                 </div>
                 <!-- ページネーション -->
         @if ($items->hasPages())
-        <div class="pagination mt-4 d-flex justify-content-center">
+        <div class="pagination mt-3 d-flex justify-content-center">
     {{ $items->links('pagination::bootstrap-5') }}
     </div>
         @endif

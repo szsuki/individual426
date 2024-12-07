@@ -148,6 +148,9 @@ body {
     background-color: #f3f3f3;
     color: #555;
 }
+.text-muted {
+    display: none; /* リンク自体を非表示 */
+}
 
 
 </style>
