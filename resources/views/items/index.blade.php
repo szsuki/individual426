@@ -41,11 +41,11 @@
                                     <td>{!! nl2br(e($item->name)) !!}</td>
                                     <td>
                                     @switch($item->type)
-                                    @case(1) 文芸 @break
-                                    @case(2) 絵本 @break
-                                    @case(3) 漫画 @break
-                                    @case(4) 雑誌 @break
-                                    @case(5) その他 @break
+                                    @case(1) <i class="fas fa-book"></i> 文芸 @break
+                                    @case(2) <i class="fas fa-palette"></i> 絵本 @break
+                                    @case(3) <i class="fas fa-comic"></i> 漫画 @break
+                                    @case(4) <i class="fas fa-newspaper"></i> 雑誌 @break
+                                    @case(5) <i class="fas fa-ellipsis-h"></i> その他 @break
                                     @endswitch
                                     </td>
                                     <td>{{ $item->created_at }}</td>
