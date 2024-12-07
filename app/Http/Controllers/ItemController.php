@@ -89,8 +89,8 @@ class ItemController extends Controller
         'name' => 'required|string|max:100',
         'type' => 'required|integer',
         'detail' => 'required|string|max:500',
-        'price' => 'required|integer|min:0',
-        'stock' => 'required|integer|min:0',
+        'price' => 'required|integer|min:0|max:1000000',
+        'stock' => 'required|integer|min:0|max:1000000',
 
     ], [
         'name.required' => '商品名を入力してください。',
@@ -100,9 +100,11 @@ class ItemController extends Controller
         'price.required' => '価格を入力してください。',
         'price.numeric' => '価格は数値で入力してください。',
         'price.min' => '価格は0以上の値を入力してください。',
+        'price.max' => '価格は1000000以下で入力してください。',
         'stock.required' => '在庫数を入力してください。',
         'stock.integer' => '在庫数は整数で入力してください。',
         'stock.min' => '在庫数は0以上の値を入力してください。',
+        'stock.max' => '在庫数は1000000以下で入力してください。',
         'detail.required' => '詳細を入力してください。',
         'detail.max' => '詳細は500文字以内で入力してください。',
     ]);
