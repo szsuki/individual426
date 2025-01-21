@@ -17,9 +17,9 @@
 
 ### 開発環境
 
-　PHP 
-  MySQL
-  Laravel
+　PHP 8.1
+  MySQL 8.0 CE
+  Laravel Framework 10.13.5
   
 ### 設計書
 
